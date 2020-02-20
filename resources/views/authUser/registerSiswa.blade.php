@@ -1,20 +1,20 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registrasi Siswa') }}</div>
+                <div class="card-header">{{ __('Registrasi Guru') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('createSiswa') }}">
+                    <form method="POST" action="{{ route('createGuru') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="nis" class="col-md-4 col-form-label text-md-right">{{ __('Nis') }}</label>
+                            <label for="nip" class="col-md-4 col-form-label text-md-right">{{ __('Nip') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nis" type="text" class="form-control @error('nis') is-invalid @enderror" name="nis" value="{{ old('nis') }}" required autocomplete="nis" autofocus>
+                                <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" required autocomplete="nip" autofocus>
 
-                                @error('nis')
+                                @error('nip')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -118,4 +118,50 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+@extends('template.authTemplate.AppRegister')
+
+@section('content')
+
+<!-- Sign up form -->
+<section class="signup">
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Daftar Siswa</h2>
+                <form action="{{ route('createSiswa') }}" method="POST" class="register-form" id="register-form">
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="pass" id="pass" placeholder="Password" />
+                    </div>
+                    <div class="form-group">
+                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                        <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                    </div>
+                </form>
+            </div>
+            <div class="signup-image">
+                <figure><img src="/assets/img/signup-image.jpg" alt="sing up image"></figure>
+                <a href="{{ route('loginSiswa') }}" class="signup-image-link">I am already member</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@endsection

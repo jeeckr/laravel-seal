@@ -10,7 +10,7 @@ class LoginGuruController extends Controller
 {
     public function index()
     {
-        return view('login.loginGuru');
+        return view('authUser.login.loginGuru');
     }
 
     public function store(Request $request)

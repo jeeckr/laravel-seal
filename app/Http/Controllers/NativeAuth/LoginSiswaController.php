@@ -10,7 +10,7 @@ class LoginSiswaController extends Controller
 {
     public function index()
     {
-        return view('login.loginSiswa');
+        return view('authUser.login.loginSiswa');
     }
 
     public function store(Request $request)

@@ -1,20 +1,20 @@
-@include('template.AdminHeader')
+@include('template.adminTemplate.AdminHeader')
 
-      <!-- Main Content -->
-      <div id="content">
+<!-- Main Content -->
+<div id="content">
 
-        @include('template.AdminTopbar')
-        
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+  @include('template.adminTemplate.AdminTopbar')
 
-        @yield('content')
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
 
-        </div>
-        <!-- /.container-fluid -->
+    @yield('content')
 
-      </div>
-      <!-- End of Main Content -->
+  </div>
+  <!-- /.container-fluid -->
 
-      
-@include('template.AdminFooter')
+</div>
+<!-- End of Main Content -->
+
+
+@include('template.adminTemplate.AdminFooter')

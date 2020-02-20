@@ -10,7 +10,7 @@ class LoginAdminController extends Controller
 {
     public function index()
     {
-        return view('login.loginAdmin');
+        return view('authUser.login.loginAdmin');
     }
 
     public function store(Request $request)

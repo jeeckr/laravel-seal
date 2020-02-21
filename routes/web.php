@@ -15,17 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
-
-Route::get('/registrasi', 'NativeAuth\RegisterController@index')->name('indexRegister');
-Route::get('/registrasi/guru', 'NativeAuth\RegisterController@formRegisterGuru')->name('formRegisterGuru');
-Route::get('/registrasi/siswa', 'NativeAuth\RegisterController@formRegisterSiswa')->name('formRegisterSiswa');
-Route::post('/registrasi/guru', 'NativeAuth\RegisterController@createGuru')->name('createGuru');
-Route::post('/registrasi/siswa', 'NativeAuth\RegisterController@createSiswa')->name('createSiswa');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 // Auth::routes(['register' => false]);
 
@@ -43,6 +33,12 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin']], function () {
 	Route::get('/guru/edit/{id}', 'Admin\GuruController@edit')->name('guruEdit');
 	Route::put('/guru/edit/{id}', 'Admin\GuruController@update')->name('guruUpdate');
 	Route::get('/guru/{id}', 'Admin\GuruController@destroy')->name('guruHapus');
+
+	Route::get('/mapel', 'Admin\MapelController@index')->name('mapel');
+	Route::get('/mapel/detail/{id}', 'Admin\MapelController@show')->name('mapelDetail');
+
+	Route::get('/materi/tambah', 'Admin\MateriController@create')->name('materiTambah');
+	Route::post('/materi/tambah', 'Admin\MateriController@store')->name('materiStore');
 });
 
 Route::middleware('guest')->group(function () {
@@ -52,6 +48,11 @@ Route::middleware('guest')->group(function () {
 	Route::post('login/siswa', 'NativeAuth\LoginSiswaController@store')->name('loginSiswaStore');
 	Route::get('login/guru', 'NativeAuth\LoginGuruController@index')->name('loginGuru');
 	Route::post('login/guru', 'NativeAuth\LoginGuruController@store')->name('loginGuruStore');
+
+	Route::get('/registrasi/guru', 'NativeAuth\RegisterGuruController@index')->name('formRegisterGuru');
+	Route::get('/registrasi/siswa', 'NativeAuth\RegisterSiswaController@index')->name('formRegisterSiswa');
+	Route::post('/registrasi/guru', 'NativeAuth\RegisterGuruController@create')->name('createGuru');
+	Route::post('/registrasi/siswa', 'NativeAuth\RegisterSiswaController@create')->name('createSiswa');
 });
 
 Route::prefix('guru')->middleware('guru')->group(function () {

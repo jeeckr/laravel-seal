@@ -10,7 +10,8 @@ class LoginGuruController extends Controller
 {
     public function index()
     {
-        return view('authUser.login.loginGuru');
+        $title = "Login Guru";
+        return view('authUser.login.loginGuru', compact('title'));
     }
 
     public function store(Request $request)

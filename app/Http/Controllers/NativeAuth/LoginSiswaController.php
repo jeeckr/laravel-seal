@@ -10,7 +10,8 @@ class LoginSiswaController extends Controller
 {
     public function index()
     {
-        return view('authUser.login.loginSiswa');
+        $title = "Login Siswa";
+        return view('authUser.login.loginSiswa', compact('title'));
     }
 
     public function store(Request $request)

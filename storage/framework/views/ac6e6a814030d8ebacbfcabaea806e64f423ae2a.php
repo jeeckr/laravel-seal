@@ -1,0 +1,1 @@
+welcome<?php /**PATH /home/jeeckr/Documents/Laravel/Elearning/resources/views/welcome.blade.php ENDPATH**/ ?>

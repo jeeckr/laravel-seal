@@ -1,8 +1,37 @@
 @extends('template.authTemplate.AppLogin')
 
+@section('style_css')
+
+<style>
+    body {
+        overflow-y: hidden;
+        margin: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .main {
+        background-color: unset !important;
+        background: #007bff !important;
+        height: 100vh;
+    }
+
+    figure {
+        margin-bottom: 0 !important;
+    }
+
+    .signin-content {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+
+    .signup-image-link {
+        margin-top: 2rem;
+    }
+</style>
+
+@endsection
+
 @section('content')
-
-
 
 <!-- Sing in  Form -->
 <section class="sign-in">
@@ -10,7 +39,6 @@
         <div class="signin-content">
             <div class="signin-image">
                 <figure><img src="/assets/img/signin-image.jpg" alt="sing up image"></figure>
-                <a href="{{ route('formRegisterSiswa') }}" class="signup-image-link">Create an account</a>
             </div>
 
             <div class="signin-form">
@@ -45,21 +73,15 @@
                         <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                     </div>
                     <div class="form-group form-button">
-                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Masuk" />
+                        <a href="{{ route('home') }}">
+                            <input type="button" name="signin" id="signin" class="form-submit" value="Kembali" />
+                        </a>
                     </div>
                 </form>
-                <div class="social-login">
-                    <span class="social-label">Or login with</span>
-                    <ul class="socials">
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                    </ul>
-                </div>
+                <a href="{{ route('formRegisterSiswa') }}" class="signup-image-link">Create an account</a>
             </div>
         </div>
     </div>
 </section>
-
-
 @endsection

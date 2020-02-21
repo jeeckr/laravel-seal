@@ -1,0 +1,1 @@
+<?php /**PATH /home/jeeckr/Documents/Laravel/Elearning/resources/views/member/IndexMember.blade.php ENDPATH**/ ?>

@@ -5,8 +5,8 @@
 <div class="container">
 	<form action="{{ route('guruUpdate', $guru->id) }}" method="POST">
 		@csrf
-        @method('PUT')
-        
+		@method('PUT')
+
 		<div class="form-group">
 			<label for="nip">NIP</label>
 			<input type="text" class="form-control" id="nip" name="nip" value="{{ $guru->nip }}">
@@ -72,9 +72,9 @@
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary" name="tambah">Simpan</button>
-            <a href="{{ route('guru') }}">
-                <button type="button" class="btn btn-warning" name="tambah">Kembali</button>
-            </a>
+			<a href="{{ route('guru') }}">
+				<button type="button" class="btn btn-warning" name="tambah">Kembali</button>
+			</a>
 		</div>
 	</form>
 </div>

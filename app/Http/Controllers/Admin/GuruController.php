@@ -9,10 +9,10 @@ use App\Guru;
 
 class GuruController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $guru = Guru::first()->paginate(5);
         return view('admin.guru.IndexGuru', compact('guru'))->with('i', (request()->input('page', 1) - 1) * 5);
-        
     }
 
     public function create()
@@ -20,12 +20,13 @@ class GuruController extends Controller
         return view('admin.guru.TambahGuru');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'nip' => 'required', 'unique:guru',
             'nama' => 'required', 'string', 'max:255',
             'alamat' => 'required', 'string', 'max:255',
-            'telepon' => 'required', 'string', 'max:12',            
+            'telepon' => 'required', 'string', 'max:12',
             'jk' => 'required',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
             'password' => 'required', 'string', 'min:8', 'confirmed',
@@ -35,7 +36,7 @@ class GuruController extends Controller
             'nip' => $request['nip'],
             'nama' => $request['nama'],
             'alamat' => $request['alamat'],
-            'telepon' => $request['telepon'],            
+            'telepon' => $request['telepon'],
             'jk' => $request['jk'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
@@ -44,17 +45,19 @@ class GuruController extends Controller
         return redirect()->route('guru')->with('success', 'Data berhasil ditambahkan!');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $guru = Guru::find($id);
         return view('admin.guru.EditGuru', compact('guru'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $guru = $request->validate([
             'nip' => 'required', 'unique:guru',
             'nama' => 'required', 'string', 'max:255',
             'alamat' => 'required', 'string', 'max:255',
-            'telepon' => 'required', 'string', 'max:12',            
+            'telepon' => 'required', 'string', 'max:12',
             'jk' => 'required',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
             'password' => 'required', 'string', 'min:8', 'confirmed',
@@ -62,12 +65,11 @@ class GuruController extends Controller
 
         guru::where('id', $id)->update($guru);
         return redirect()->route('guru')->with('success', 'Data berhasil diedit!');
+    }
 
-    } 
-
-    public function destroy($id) {
+    public function destroy($id)
+    {
         Guru::destroy($id);
         return redirect()->route('guru')->with('success', 'Data berhasil dihapus!');
     }
-
 }

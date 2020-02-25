@@ -6,114 +6,38 @@
 		<div class="form-group">
 			<label for="nip">NIP</label>
 			<input type="text" class="form-control" id="nip" name="nip">
-			<?php $__errorArgs = ['nip'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-			<span class="invalid-feedback" role="alert">
-				<strong><?php echo e($message); ?></strong>
-			</span>
-			<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 		</div>
 		<div class="form-group">
-			<label for="nama">Nama</label>
-			<input type="text" class="form-control" id="nama" name="nama">
-			<?php $__errorArgs = ['nama'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-			<span class="invalid-feedback" role="alert">
-				<strong><?php echo e($message); ?></strong>
-			</span>
-			<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+			<label for="nama_depan">Nama Depan</label>
+			<input type="text" class="form-control" id="nama_depan" name="nama_depan">
+		</div>
+		<div class="form-group">
+			<label for="nama_belakang">Nama Belakang</label>
+			<input type="text" class="form-control" id="nama_belakang" name="nama_belakang">
 		</div>
 		<div class="form-group">
 			<label for="alamat">Alamat</label>
 			<input type="text" class="form-control" id="alamat" name="alamat">
-			<?php $__errorArgs = ['alamat'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-			<span class="invalid-feedback" role="alert">
-				<strong><?php echo e($message); ?></strong>
-			</span>
-			<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 		</div>
 		<div class="form-group">
 			<label for="telepon">Telepon</label>
 			<input type="text" class="form-control" id="telepon" name="telepon">
-			<?php $__errorArgs = ['telepon'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-			<span class="invalid-feedback" role="alert">
-				<strong><?php echo e($message); ?></strong>
-			</span>
-			<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+		</div>
+		<div class="form-group">
+			<label for="tempat_lahir">Tempat Lahir</label>
+			<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
 		</div>
 		<div class="form-group">
 			<label for="jk">Jenis Kelamin</label>
 			<input type="text" class="form-control" id="jk" name="jk">
-			<?php $__errorArgs = ['jk'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-			<span class="invalid-feedback" role="alert">
-				<strong><?php echo e($message); ?></strong>
-			</span>
-			<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 		</div>
 		<div class="form-group">
 			<label for="email">Email</label>
 			<input type="email" class="form-control" id="email" name="email">
-			<?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-			<span class="invalid-feedback" role="alert">
-				<strong><?php echo e($message); ?></strong>
-			</span>
-			<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 		</div>
 		<div class="form-group">
 			<label for="passsword">password</label>
 			<input type="password" class="form-control" id="password" name="password">
-			<?php $__errorArgs = ['password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-			<span class="invalid-feedback" role="alert">
-				<strong><?php echo e($message); ?></strong>
-			</span>
-			<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary" name="tambah">Tambah</button>

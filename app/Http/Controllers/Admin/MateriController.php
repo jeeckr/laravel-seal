@@ -9,34 +9,47 @@ use App\Mapel;
 
 class MateriController extends Controller
 {
-    // public function index()
-    // {
-    //     $materi = Materi::all();
-    //     $mapel = Mapel::all();
-    //     return view('admin.mapel.index_mapel', ['materi' => $materi, 'mapel' => $mapel]);
-    // }
+    public function index()
+    {
+    }
 
     public function create()
     {
-        $materi = Materi::all();
         $mapel = Mapel::all();
-        return view('admin.materi.tambah_materi', ['materi' => $materi, 'mapel' => $mapel]);
+        $materi = Materi::all();
+        return view('admin.materi.tambah_materi', ['mapel' => $mapel, 'materi' => $materi]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
+            'id_mapel' => 'required',
             'bab' => 'required',
             'isi_materi' => 'required',
-            'id_mapel' => 'required',
         ]);
 
         Materi::create([
+            'id_mapel' => $request['id_mapel'],
             'bab' => $request['bab'],
             'isi_materi' => $request['isi_materi'],
-            'id_mapel' => $request['id_mapel'],
         ]);
 
+        return redirect()->route('mapel');
+    }
+
+    public function edit($id)
+    {
+        $materi = Materi::find($id);
+        return view('admin.materi.edit_materi', compact('materi'));
+    }
+
+    public function update()
+    {
+    }
+
+    public function destroy($id)
+    {
+        Materi::destroy($id);
         return redirect()->route('mapel');
     }
 }

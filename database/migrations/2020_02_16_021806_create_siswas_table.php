@@ -15,14 +15,18 @@ class CreateSiswasTable extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('role_id')->default(2);
-            $table->integer('nis')->unique();
-            $table->string('nama');
+            $table->bigInteger('id_kelas')->unsigned()->default(1);
+            $table->integer('nisn')->unique();
+            $table->string('nama_depan');
+            $table->string('nama_belakang');
             $table->string('alamat');
             $table->string('telepon');
-            $table->string('jk');
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir')->nullable();
+            $table->enum('jk', ['Laki-Laki', 'Perempuan'])->nullable();
             $table->string('image')->default('default.png');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

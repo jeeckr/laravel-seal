@@ -9,11 +9,11 @@ class Materi extends Model
     protected $table = 'materi';
 
     protected $fillable = [
-        'bab', 'isi_materi', 'id_mapel',
+        'id_mapel', 'bab', 'isi_materi'
     ];
 
     public function mapel()
     {
-        return $this->belongsTo(Mapel::class, 'id_mapel');
+        return $this->belongsTo(Mapel::class);
     }
 }

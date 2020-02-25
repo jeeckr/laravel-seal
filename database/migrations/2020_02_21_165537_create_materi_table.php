@@ -15,9 +15,9 @@ class CreateMateriTable extends Migration
     {
         Schema::create('materi', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('id_mapel')->unsigned();
             $table->string('bab');
             $table->text('isi_materi');
-            $table->integer('id_mapel')->unsigned();
             $table->timestamps();
         });
     }

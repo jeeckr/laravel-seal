@@ -18,6 +18,30 @@
   <!-- Custom styles for this template-->
   <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet">
 
+  <style>
+    .dataTables_length label {
+      width: 100% !important;
+      padding-bottom: 0 !important;
+      padding-top: 25px !important;
+    }
+
+    .pagination {
+      float: right !important;
+    }
+
+    .custom-select-sm {
+      width: 30% !important;
+
+    }
+
+    .dataTables_filter label {
+      float: right !important;
+    }
+  </style>
+
+  @yield('style_css')
+
+
 </head>
 
 <body id="page-top">

@@ -18,15 +18,30 @@
             overflow-y: hidden;
         }
 
+        .banner-title {
+            margin-top: 3rem;
+            margin-bottom: 5rem;
+        }
+
         .btn-all a {
-            width: 14rem !important;
+            width: 13rem !important;
+            font-size: 15px !important;
+            font-weight: bold !important;
         }
 
         .btn-login {
-            margin: 1rem !important;
+            margin: 0.5rem !important;
             text-align: center;
             padding-right: 20px !important;
             padding-left: 20px !important;
+        }
+
+        h4 {
+            margin-left: 5rem;
+        }
+
+        .now {
+            color: #007bff;
         }
     </style>
 </head>
@@ -41,10 +56,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1> We promise to bring
-                        the best <span>solution</span> for
-                        your business.
-                    </h1>
+                    <div class="banner-title text-center">
+                        <h3>"Mulailah dari mana kau berada.<br> Gunakan apa yang kau punya.<br> Lakukan apa yang kau bisa."
+                        </h3>
+                    </div>
+
+                    <h4>Yuk Login <span class="now">Sekarang</span> !</h4>
 
                     <div class="row justify-content-center btn-all">
                         <a class="btn-login" href="<?php echo e(route('loginSiswa')); ?>">Siswa </a>

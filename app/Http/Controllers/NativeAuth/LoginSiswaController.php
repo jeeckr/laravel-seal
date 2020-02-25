@@ -27,7 +27,7 @@ class LoginSiswaController extends Controller
         ];
 
         if (auth()->guard('siswa')->attempt($credentials)) {
-            return redirect()->route('homeSiswa');
+            return redirect()->route('homeSiswa')->with('success', 'Selamat Datang!');
         }
         return redirect()->route('loginSiswa');
     }

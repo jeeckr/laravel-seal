@@ -74,6 +74,20 @@
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
+    <a class="nav-link" href="<?php echo e(route('pengajar')); ?>">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Pengajar</span></a>
+  </li>
+
+  <!-- Nav Item - Tables -->
+  <li class="nav-item">
+    <a class="nav-link" href="<?php echo e(route('kelas')); ?>">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Kelas</span></a>
+  </li>
+
+  <!-- Nav Item - Tables -->
+  <li class="nav-item">
     <a class="nav-link" href="tables.html">
       <i class="fas fa-fw fa-table"></i>
       <span>Kuis</span></a>

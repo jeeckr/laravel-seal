@@ -1,7 +1,5 @@
 @include('template.adminTemplate.AdminHeader')
 
-@yield('style_css')
-
 <!-- Main Content -->
 <div id="content">
 

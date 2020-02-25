@@ -58,7 +58,7 @@
                                         <a href="#" class="btn btn-warning btn-circle">
                                             <i class="fas fa-exclamation-triangle"></i>
                                         </a>
-                                        <a href="#" class="btn btn-danger btn-circle">
+                                        <a href="<?php echo e(route('materiHapus', $data->id)); ?>" class="btn btn-danger btn-circle">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -70,6 +70,10 @@
 
                         </table>
                     </div>
+
+                    <a href="<?php echo e(route('mapel')); ?>">
+                        <button class="btn btn-primary mb-3">Kembali</button>
+                    </a>
 
                 </div>
             </div>

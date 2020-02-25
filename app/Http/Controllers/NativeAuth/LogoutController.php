@@ -15,6 +15,6 @@ class LogoutController extends Controller
         auth()->guard('siswa')->logout();
         auth()->logout();
 
-        return view('home');
+        return redirect()->route('home');
     }
 }

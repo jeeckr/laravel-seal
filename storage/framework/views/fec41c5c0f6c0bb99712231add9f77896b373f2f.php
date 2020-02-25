@@ -1,3 +1,11 @@
+<?php $__env->startSection('style_css'); ?>
+
+<style>
+
+</style>
+
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 
 <?php if($message = Session::get('success')): ?>
@@ -10,13 +18,6 @@
 
 <?php endif; ?>
 
-<a href="<?php echo e(route('siswaTambah')); ?>" class="btn btn-primary btn-icon-split mb-4">
-  <span class="icon text-white-50">
-    <i class="fas fa-flag"></i>
-  </span>
-  <span class="text">Tambah</span>
-</a>
-
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
@@ -24,15 +25,15 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>NIS</th>
-            <th>Nama</th>
+            <th>NISN</th>
+            <th>Nama Depan</th>
+            <th>Nama Belakang</th>
             <th>Alamat</th>
             <th>Telepon</th>
-            <th>JK</th>
-            <th>Email</th>
+            <th>Jenis Kelamin</th>
             <th>Opsi</th>
           </tr>
         </thead>
@@ -40,28 +41,35 @@
         <tbody>
           <?php $__currentLoopData = $siswa; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <tr>
-            <td><?php echo e($data->nis); ?></td>
-            <td><?php echo e($data->nama); ?></td>
+            <td><?php echo e($data->nisn); ?></td>
+            <td><?php echo e($data->nama_depan); ?></td>
+            <td><?php echo e($data->nama_belakang); ?></td>
             <td><?php echo e($data->alamat); ?></td>
             <td><?php echo e($data->telepon); ?></td>
             <td><?php echo e($data->jk); ?></td>
-            <td><?php echo e($data->email); ?></td>
             <td>
-                <a href="#" class="btn btn-info btn-circle">
-                  <i class="fas fa-info-circle"></i>
-                </a>
-                <a href="#" class="btn btn-warning btn-circle">
-                  <i class="fas fa-exclamation-triangle"></i>
-                </a>
-                <a href="#" class="btn btn-danger btn-circle">
-                  <i class="fas fa-trash"></i>
-                </a>
+              <a href="#" class="btn btn-info btn-circle">
+                <i class="fas fa-info-circle"></i>
+              </a>
+              <a href="<?php echo e(route('siswaEdit', $data->id)); ?>" class="btn btn-warning btn-circle">
+                <i class="fas fa-exclamation-triangle"></i>
+              </a>
+              <a href="<?php echo e(route('siswaHapus', $data->id)); ?>" class="btn btn-danger btn-circle">
+                <i class="fas fa-trash"></i>
+              </a>
             </td>
           </tr>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
 
       </table>
+
+      <a href="<?php echo e(route('siswaTambah')); ?>" class="btn btn-primary mb-2">
+        <span class="icon text-white-50">
+        </span>
+        <span class="text">Tambah</span>
+      </a>
+
     </div>
   </div>
 </div>

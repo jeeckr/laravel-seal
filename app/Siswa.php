@@ -11,7 +11,7 @@ class Siswa extends Authenticatable
     protected $table = 'siswas';
 
     protected $fillable = [
-        'nis', 'nama', 'alamat', 'telepon', 'jk', 'image', 'email', 'password'
+        'id_kelas', 'nisn', 'nama_depan', 'nama_belakang', 'alamat', 'telepon', 'tempat_lahir', 'tanggal_lahir', 'jk', 'image', 'email', 'password'
     ];
 
     /**
@@ -31,4 +31,9 @@ class Siswa extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
 }

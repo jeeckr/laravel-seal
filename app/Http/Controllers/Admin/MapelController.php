@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Mapel;
 use App\Materi;
+use App\Guru;
 
 class MapelController extends Controller
 {
@@ -17,16 +18,38 @@ class MapelController extends Controller
         return view('admin.mapel.index_mapel', compact('materi', 'mapel'));
     }
 
+    public function create()
+    {
+        $guru = Guru::all();
+        return view('admin.mapel.tambah_mapel', compact('guru'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'id_guru' => 'required',
+            'nama_mapel' => 'required',
+        ]);
+
+        Mapel::create([
+            'id_guru' => $request['id_guru'],
+            'nama_mapel' => $request['nama_mapel'],
+        ]);
+
+        return redirect()->route('mapel')->with('success', 'Data berhasil ditambah!');
+    }
+
     public function show($id)
     {
         $mapel = Mapel::find($id);
         $materi = Materi::where('id_mapel', $id)->paginate(5);
-        return view('admin.mapel.detail_mapel', compact('mapel', 'materi'));
+        return view('admin.mapel.detail_materi', compact('mapel', 'materi'));
     }
 
-    // public function show($id)
-    // {
-    //     $materi = Materi::find($id);
-    //     return view('admin.mapel.detail_mapel', compact('materi'));
-    // }
+    public function destroy($id)
+    {
+        Mapel::destroy($id);
+        Materi::destroy('id_mapel', $id);
+        return redirect()->route('mapel');
+    }
 }

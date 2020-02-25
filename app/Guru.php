@@ -13,7 +13,7 @@ class Guru extends Authenticatable
     protected $table = 'guru';
 
     protected $fillable = [
-        'nip', 'nama', 'alamat', 'telepon', 'jk', 'image', 'email', 'password'
+        'nip', 'nama', 'nama_depan', 'nama_belakang', 'alamat', 'telepon', 'tempat_lahir', 'tanggal_lahir', 'jk', 'image', 'email', 'password'
     ];
 
     /**
@@ -33,4 +33,9 @@ class Guru extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function mapel()
+    {
+        return $this->hasOne(Mapel::class);
+    }
 }

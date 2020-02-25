@@ -13,12 +13,13 @@ class GuruTableSeeder extends Seeder
     public function run()
     {
         DB::table('guru')->insert([
-            'role_id' => '3',
-            'nip' => '0',
-            'nama' => 'guru',
-            'alamat' => 'surabaya',
-            'telepon' => '6666666',
-            'jk' => 'L',
+            'nip' => '220',
+            'nama_depan' => 'Guru',
+            'nama_belakang' => 'Sandy',
+            'alamat' => 'jl. Kedung Baruk',
+            'telepon' => '089776993667',
+            'tempat_lahir' => 'Surabaya',
+            'jk' => 'Laki-Laki',
             'email' => 'guru@gmail.com',
             'password' => bcrypt('password')
         ]);

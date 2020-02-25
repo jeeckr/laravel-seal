@@ -35,21 +35,23 @@ class SiswaController extends Controller
     {
 
         $request->validate([
-            'nis' => 'required', 'unique:siswas',
-            'nama' => 'required', 'string', 'max:255',
+            'nisn' => 'required', 'unique:siswas',
+            'nama_depan' => 'required', 'string', 'max:255',
+            'nama_belakang' => 'required', 'string', 'max:255',
             'alamat' => 'required', 'string', 'max:255',
             'telepon' => 'required', 'string', 'max:12',
-            'jk' => 'required',
+            'tempat_lahir' => 'required',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
             'password' => 'required', 'string', 'min:8', 'confirmed',
         ]);
 
         Siswa::create([
-            'nis' => $request['nis'],
-            'nama' => $request['nama'],
+            'nisn' => $request['nisn'],
+            'nama_depan' => $request['nama_depan'],
+            'nama_belakang' => $request['nama_belakang'],
             'alamat' => $request['alamat'],
             'telepon' => $request['telepon'],
-            'jk' => $request['jk'],
+            'tempat_lahir' => $request['tempat_lahir'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
@@ -76,7 +78,8 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        return view('admin.siswa.EditSiswa', ['siswa' => $siswa]);
     }
 
     /**
@@ -88,7 +91,19 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $siswa = $request->validate([
+            'nisn' => 'required', 'unique:siswas',
+            'nama_depan' => 'required', 'string', 'max:255',
+            'nama_belakang' => 'required', 'string', 'max:255',
+            'alamat' => 'required', 'string', 'max:255',
+            'telepon' => 'required', 'string', 'max:12',
+            'tempat_lahir' => 'required',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
+            'password' => 'required', 'string', 'min:8', 'confirmed',
+        ]);
+
+        Siswa::where('id', $id)->update($siswa);
+        return redirect()->route('siswa')->with('success', 'Data berhasil diubah!');
     }
 
     /**
@@ -99,6 +114,7 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Siswa::destroy($id);
+        return redirect()->route('siswa')->with('success', 'Data berhasil dihapus!');
     }
 }

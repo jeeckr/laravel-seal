@@ -13,12 +13,13 @@ class SiswaTableSeeder extends Seeder
     public function run()
     {
         DB::table('siswas')->insert([
-            'role_id' => '2',
-            'nis' => '0',
-            'nama' => 'siswa',
-            'alamat' => 'surabaya',
-            'telepon' => '6666666',
-            'jk' => 'L',
+            'nisn' => '21',
+            'nama_depan' => 'Siswa',
+            'nama_belakang' => 'Sandy',
+            'alamat' => 'jl. Kedung Baruk',
+            'telepon' => '089649693199',
+            'tempat_lahir' => 'Surabaya',
+            'jk' => 'Laki-Laki',
             'email' => 'siswa@gmail.com',
             'password' => bcrypt('password')
         ]);

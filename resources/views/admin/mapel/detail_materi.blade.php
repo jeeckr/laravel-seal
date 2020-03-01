@@ -12,6 +12,16 @@
 
 @section('content')
 
+@if ($message = Session::get('success'))
+
+<div class="alert alert-success">
+
+    <p>{{ $message }}</p>
+
+</div>
+
+@endif
+
 <div class="row">
 
     <!-- Area Chart -->
@@ -44,6 +54,7 @@
                             <thead>
                                 <tr>
                                     <th>BAB</th>
+                                    <th>Judul</th>
                                     <th>Materi</th>
                                     <th>Opsi</th>
                                 </tr>
@@ -55,13 +66,14 @@
 
                                 <tr>
                                     <td> {{ $data->bab }}</td>
+                                    <td> {{ $data->judul }}</td>
                                     <td> {{ $data->isi_materi }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-circle">
-                                            <i class="fas fa-exclamation-triangle"></i>
+                                        <a href="{{ route('materiEdit', $data->id) }}" class="btn btn-warning ">
+                                            Edit
                                         </a>
-                                        <a href="{{ route('materiHapus', $data->id) }}" class="btn btn-danger btn-circle">
-                                            <i class="fas fa-trash"></i>
+                                        <a href="{{ route('materiHapus', $data->id) }}" class="btn btn-danger ">
+                                            Hapus
                                         </a>
                                     </td>
                                 </tr>

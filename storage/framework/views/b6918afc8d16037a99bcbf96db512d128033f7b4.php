@@ -1,3 +1,13 @@
+<?php $__env->startSection('style_css'); ?>
+
+<style>
+  .btn-all {
+    width: 2.5rem !important;
+  }
+</style>
+
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 
 <?php if($message = Session::get('success')): ?>
@@ -9,6 +19,8 @@
 </div>
 
 <?php endif; ?>
+
+
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -43,13 +55,13 @@
             <td><?php echo e($data->jk); ?></td>
             <td><?php echo e($data->email); ?></td>
             <td>
-              <a href="#" class="btn btn-info btn-circle">
-                <i class="fas fa-info-circle"></i>
+              <a href="#" class="btn btn-info btn-all">
+                <i class="fas fa-info"></i>
               </a>
-              <a href="<?php echo e(route('guruEdit', $data['id'])); ?>" class="btn btn-warning btn-circle">
-                <i class="fas fa-exclamation-triangle"></i>
+              <a href="<?php echo e(route('guruEdit', $data['id'])); ?>" class="btn btn-warning btn-all">
+                <i class="fas fa-edit"></i>
               </a>
-              <a href="<?php echo e(route('guruHapus',$data['id'])); ?>" class="btn btn-danger btn-circle">
+              <a href="<?php echo e(route('guruHapus',$data['id'])); ?>" class="btn btn-danger btn-all">
                 <i class="fas fa-trash"></i>
               </a>
             </td>
@@ -62,7 +74,7 @@
       <a href="<?php echo e(route('guruTambah')); ?>" class="btn btn-primary mb-2">
         <span class="icon">
         </span>
-        <span class="text">Tambah</span>
+        <span class="text">Tambah Guru</span>
       </a>
 
     </div>

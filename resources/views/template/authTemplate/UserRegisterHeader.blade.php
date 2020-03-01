@@ -12,6 +12,9 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="/assets/css/login/style.css">
+
+    @yield('style_css')
+
 </head>
 
 <body>

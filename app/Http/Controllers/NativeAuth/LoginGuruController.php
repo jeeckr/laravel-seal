@@ -27,7 +27,7 @@ class LoginGuruController extends Controller
         ];
 
         if (auth()->guard('guru')->attempt($credentials)) {
-            return redirect()->route('homeGuru');
+            return redirect()->route('homeGuru')->with('success', 'Selamat Datang!');
         }
         return redirect()->route('loginGuru');
     }

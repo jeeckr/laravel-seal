@@ -66,7 +66,7 @@
                     <div class="row justify-content-center btn-all">
                         <a class="btn-login" href="{{ route('loginSiswa') }}">Siswa </a>
                         <a class="btn-login" href="{{ route('loginGuru') }}">Guru </a>
-                        <a class="btn-login" href="#">Kepala Sekolah </a>
+                        <a class="btn-login" href="{{ route('loginKepsek') }}">Kepala Sekolah </a>
                     </div>
                 </div>
                 <div class="col-md-6">

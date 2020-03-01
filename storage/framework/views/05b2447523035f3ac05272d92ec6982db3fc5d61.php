@@ -6,6 +6,11 @@
 	</div>
 	<div class="card-body">
 
+		<?php if($errors->any()): ?>
+		<?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+		<div class="alert alert-danger" role="alert"><?php echo e($error); ?></div>
+		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+		<?php endif; ?>
 
 		<div class="container">
 			<form action="<?php echo e(route('guruUpdate', $guru->id)); ?>" method="POST">
@@ -15,114 +20,38 @@
 				<div class="form-group">
 					<label for="nip">NIP</label>
 					<input type="text" class="form-control" id="nip" name="nip" value="<?php echo e($guru->nip); ?>">
-					<?php $__errorArgs = ['nip'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-					<span class="invalid-feedback" role="alert">
-						<strong><?php echo e($message); ?></strong>
-					</span>
-					<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 				</div>
 				<div class="form-group">
-					<label for="nama">Nama</label>
-					<input type="text" class="form-control" id="nama" name="nama" value="<?php echo e($guru->nama); ?>">
-					<?php $__errorArgs = ['nama'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-					<span class="invalid-feedback" role="alert">
-						<strong><?php echo e($message); ?></strong>
-					</span>
-					<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+					<label for="nama_depan">Nama Depan</label>
+					<input type="text" class="form-control" id="nama_depan" name="nama_depan" value="<?php echo e($guru->nama_depan); ?>">
+				</div>
+				<div class="form-group">
+					<label for="nama_belakang">Nama Belakang</label>
+					<input type="text" class="form-control" id="nama_belakang" name="nama_belakang" value="<?php echo e($guru->nama_belakang); ?>">
 				</div>
 				<div class="form-group">
 					<label for="alamat">Alamat</label>
 					<input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo e($guru->alamat); ?>">
-					<?php $__errorArgs = ['alamat'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-					<span class="invalid-feedback" role="alert">
-						<strong><?php echo e($message); ?></strong>
-					</span>
-					<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 				</div>
 				<div class="form-group">
 					<label for="telepon">Telepon</label>
 					<input type="text" class="form-control" id="telepon" name="telepon" value="<?php echo e($guru->telepon); ?>">
-					<?php $__errorArgs = ['telepon'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-					<span class="invalid-feedback" role="alert">
-						<strong><?php echo e($message); ?></strong>
-					</span>
-					<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+				</div>
+				<div class="form-group">
+					<label for="tempat_lahir">Tempat Lahir</label>
+					<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?php echo e($guru->tempat_lahir); ?>">
 				</div>
 				<div class="form-group">
 					<label for="jk">Jenis Kelamin</label>
 					<input type="text" class="form-control" id="jk" name="jk" value="<?php echo e($guru->jk); ?>">
-					<?php $__errorArgs = ['jk'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-					<span class="invalid-feedback" role="alert">
-						<strong><?php echo e($message); ?></strong>
-					</span>
-					<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
 					<input type="email" class="form-control" id="email" name="email" value="<?php echo e($guru->email); ?>">
-					<?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-					<span class="invalid-feedback" role="alert">
-						<strong><?php echo e($message); ?></strong>
-					</span>
-					<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
 				</div>
 				<div class="form-group">
 					<label for="passsword">password</label>
-					<input type="password" class="form-control" id="password" name="password" value="<?php echo e($guru->password); ?>">
-					<?php $__errorArgs = ['password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-					<span class="invalid-feedback" role="alert">
-						<strong><?php echo e($message); ?></strong>
-					</span>
-					<?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+					<input type="password" class="form-control" id="password" name="password">
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="tambah">Simpan</button>

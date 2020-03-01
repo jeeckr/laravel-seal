@@ -11,8 +11,8 @@ class GuruController extends Controller
 {
     public function index()
     {
-        $guru = Guru::first()->paginate(5);
-        return view('admin.guru.IndexGuru', compact('guru'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $guru = Guru::all();
+        return view('admin.guru.IndexGuru', compact('guru'));
     }
 
     public function create()
@@ -29,9 +29,16 @@ class GuruController extends Controller
             'alamat' => 'required', 'string', 'max:255',
             'telepon' => 'required', 'string', 'max:12',
             'tempat_lahir' => 'required',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
-            'password' => 'required', 'string', 'min:8', 'confirmed',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:guru',
+            'password' => 'required', 'string', 'min:8',
         ]);
+
+        $path = null;
+
+        if ($request->has('image')) {
+            $path = $request->file('image')->store('image');
+        }
 
         Guru::create([
             'nip' => $request['nip'],
@@ -40,6 +47,7 @@ class GuruController extends Controller
             'alamat' => $request['alamat'],
             'telepon' => $request['telepon'],
             'tempat_lahir' => $request['tempat_lahir'],
+            'image' => $path,
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
@@ -55,18 +63,38 @@ class GuruController extends Controller
 
     public function update(Request $request, $id)
     {
-        $guru = $request->validate([
-            'nip' => 'required', 'unique:guru',
-            'nama_depan' => 'required', 'string', 'max:255',
-            'nama_belakang' => 'required', 'string', 'max:255',
-            'alamat' => 'required', 'string', 'max:255',
-            'telepon' => 'required', 'string', 'max:12',
-            'tempat_lahir' => 'required',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
-            'password' => 'required', 'string', 'min:8', 'confirmed',
-        ]);
+        $data = Guru::find($id);
 
-        guru::where('id', $id)->update($guru);
+        if ($data->nip != $request->nip) {
+            $request->validate([
+                'nip' => 'required|unique:guru',
+            ]);
+        }
+
+        if ($request->filled('password')) {
+            $request->validate([
+                'nama_depan' => 'required', 'string', 'max:255',
+                'nama_belakang' => 'required', 'string', 'max:255',
+                'alamat' => 'required', 'string', 'max:255',
+                'telepon' => 'required', 'string', 'max:12',
+                'tempat_lahir' => 'required',
+                'email' => 'required', 'string', 'email', 'max:255', 'unique:kepsek',
+                'password' => 'string', 'min:8',
+            ]);
+
+            $data->update($request->except('password') + ['password' => Hash::make($request['password'])]);
+        } else {
+            $request->validate([
+                'nama_depan' => 'required', 'string', 'max:255',
+                'nama_belakang' => 'required', 'string', 'max:255',
+                'alamat' => 'required', 'string', 'max:255',
+                'telepon' => 'required', 'string', 'max:12',
+                'tempat_lahir' => 'required',
+                'email' => 'required', 'string', 'email', 'max:255', 'unique:kepsek',
+            ]);
+            $data->update($request->except('password'));
+        }
+
         return redirect()->route('guru')->with('success', 'Data berhasil diedit!');
     }
 

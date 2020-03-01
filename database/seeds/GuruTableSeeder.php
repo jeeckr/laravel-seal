@@ -13,7 +13,7 @@ class GuruTableSeeder extends Seeder
     public function run()
     {
         DB::table('guru')->insert([
-            'nip' => '220',
+            'nip' => '01',
             'nama_depan' => 'Guru',
             'nama_belakang' => 'Sandy',
             'alamat' => 'jl. Kedung Baruk',

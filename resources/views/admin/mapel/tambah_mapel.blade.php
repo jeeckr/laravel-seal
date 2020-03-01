@@ -15,30 +15,36 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="chart-area">
-                    <form action="{{ route('mapelStore') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="id_mapel">Guru</label>
-                            <select class="form-control" id="id_guru" name="id_guru">
 
-                                @foreach ($guru as $data)
+                    <div class="container">
+                        <form action="{{ route('mapelStore') }}" method="POST">
+                            @csrf
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="id_mapel">Guru</label>
+                                    <select class="form-control" id="id_guru" name="id_guru">
 
-                                <option value="{{ $data->id }}">{{ $data->nama_depan }} {{ $data->nama_belakang }} </option>
+                                        @foreach ($guru as $data)
 
-                                @endforeach
+                                        <option value="{{ $data->id }}">{{ $data->nama_depan }} {{ $data->nama_belakang }} </option>
 
-                            </select>
-                        </div>
+                                        @endforeach
 
-                        <div class="form-group">
-                            <label for="nama_mapel">Mata Pelajaran</label>
-                            <input type="text" class="form-control" id="nama_mapel" name="nama_mapel">
-                        </div>
+                                    </select>
+                                </div>
+                            </div>
 
-                        <div class="form-group">
-                            <button type="submit" name="tambah" class="btn btn-success">Tambah</button>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <label for="nama_mapel">Mata Pelajaran</label>
+                                <input type="text" class="form-control" id="nama_mapel" name="nama_mapel">
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
+                                <a href="{{ route('mapel') }}" class="btn btn-warning">Kembali</a>
+                            </div>
+                        </form>
+                    </div>
 
                 </div>
             </div>

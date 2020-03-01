@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
 
 
 class Guru extends Authenticatable
@@ -37,5 +38,13 @@ class Guru extends Authenticatable
     public function mapel()
     {
         return $this->hasOne(Mapel::class);
+    }
+
+    public function showImage()
+    {
+        if (Storage::has($this->image)) {
+            return asset('storage/' . $this->image);
+        }
+        return asset('images/defaultImage.png');
     }
 }

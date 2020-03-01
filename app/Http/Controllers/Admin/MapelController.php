@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\DB;
 use App\Mapel;
 use App\Materi;
 use App\Guru;
+use Datatable;
 
 class MapelController extends Controller
 {
     public function index()
     {
+
         $materi = Materi::all();
         $mapel = Mapel::all();
         return view('admin.mapel.index_mapel', compact('materi', 'mapel'));
@@ -44,6 +46,24 @@ class MapelController extends Controller
         $mapel = Mapel::find($id);
         $materi = Materi::where('id_mapel', $id)->paginate(5);
         return view('admin.mapel.detail_materi', compact('mapel', 'materi'));
+    }
+
+    public function edit($id)
+    {
+        $mapel = Mapel::find($id);
+        $guru = Guru::get();
+        return view('admin.mapel.edit_mapel', compact('mapel', 'guru'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $mapel = $request->validate([
+            'id_guru' => 'required',
+            'nama_mapel' => 'required',
+        ]);
+
+        Mapel::where('id', $id)->update($mapel);
+        return redirect()->route('mapel')->with('success', 'Data berhasil diedit!');
     }
 
     public function destroy($id)

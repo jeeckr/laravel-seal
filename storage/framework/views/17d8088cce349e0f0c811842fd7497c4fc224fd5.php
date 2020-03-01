@@ -1,3 +1,13 @@
+<?php $__env->startSection('style_css'); ?>
+
+<style>
+    .btn-all {
+        width: 2.5rem !important;
+    }
+</style>
+
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 
 <?php if($message = Session::get('success')): ?>
@@ -35,12 +45,12 @@
                         <td><?php echo e($data->nama_mapel); ?></td>
                         <td>
                             <a href="<?php echo e(route('detailMateri', $data['id'])); ?>">
-                                <button class="btn btn-primary">Materi</button>
+                                <button class="btn btn-primary ">Materi</button>
                             </a>
-                            <a href="#" class="btn btn-warning btn-circle">
-                                <i class="fas fa-exclamation-triangle"></i>
+                            <a href="<?php echo e(route('mapelEdit', $data->id)); ?>" class="btn btn-warning btn-all">
+                                <i class="fas fa-edit"></i>
                             </a>
-                            <a href="<?php echo e(route('mapelHapus', $data->id)); ?>" class="btn btn-danger btn-circle">
+                            <a href="<?php echo e(route('mapelHapus', $data->id)); ?>" class="btn btn-danger btn-all ">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
@@ -51,7 +61,7 @@
             </table>
 
             <a href="<?php echo e(route('mapelTambah')); ?>">
-                <button class="btn btn-primary mb-3">Tambah</button>
+                <button class="btn btn-primary mb-3">Tambah Mapel</button>
             </a>
 
         </div>

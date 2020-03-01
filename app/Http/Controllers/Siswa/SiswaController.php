@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Siswa;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Siswa;
 use App\Mapel;
+
 
 class SiswaController extends Controller
 {
     public function index()
     {
-        $siswa = Siswa::first();
+        $title = 'Dashboard Siswa';
+        $siswa = Auth::guard('siswa')->user();
         $mapel = Mapel::all();
-        return view('siswa.IndexSiswa', compact('siswa', 'mapel'));
+        return view('siswa.IndexSiswa', compact('title', 'siswa', 'mapel'));
     }
 }

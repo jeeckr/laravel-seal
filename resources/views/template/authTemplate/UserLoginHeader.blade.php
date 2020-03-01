@@ -8,10 +8,13 @@
     <title>{{ $title }}</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="/assets/fonts/login/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{ asset('/assets/fonts/login/material-icon/css/material-design-iconic-font.min.css') }}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="/assets/css/login/style.css">
+    <link rel="stylesheet" href="{{ asset('/assets/css/login/style.css') }}">
+
+    @yield('style_css')
+
 </head>
 
 <body>

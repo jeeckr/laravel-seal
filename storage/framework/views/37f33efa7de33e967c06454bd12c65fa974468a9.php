@@ -12,6 +12,9 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="/assets/css/login/style.css">
+
+    <?php echo $__env->yieldContent('style_css'); ?>
+
 </head>
 
 <body>

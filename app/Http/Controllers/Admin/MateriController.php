@@ -24,12 +24,14 @@ class MateriController extends Controller
     {
         $request->validate([
             'id_mapel' => 'required',
+            'judul' => 'required',
             'bab' => 'required',
             'isi_materi' => 'required',
         ]);
 
         Materi::create([
             'id_mapel' => $request['id_mapel'],
+            'judul' => $request['judul'],
             'bab' => $request['bab'],
             'isi_materi' => $request['isi_materi'],
         ]);
@@ -39,12 +41,23 @@ class MateriController extends Controller
 
     public function edit($id)
     {
+        $mapel = Mapel::firstOrFail();
         $materi = Materi::find($id);
-        return view('admin.materi.edit_materi', compact('materi'));
+        return view('admin.materi.edit_materi', compact('materi', 'mapel'));
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
+        $materi = $request->validate([
+            'id_mapel' => 'required',
+            'judul' => 'required',
+            'bab' => 'required',
+            'isi_materi' => 'required',
+        ]);
+
+
+        Materi::where('id', $id)->update($materi);
+        return redirect()->route('mapel')->with('success', 'Data berhasil diedit!');
     }
 
     public function destroy($id)

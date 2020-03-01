@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
 
 class Siswa extends Authenticatable
 {
@@ -35,5 +36,13 @@ class Siswa extends Authenticatable
     public function kelas()
     {
         return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
+
+    public function showImage()
+    {
+        if (Storage::has($this->image)) {
+            return asset('storage/' . $this->image);
+        }
+        return asset('images/defaultImage.png');
     }
 }

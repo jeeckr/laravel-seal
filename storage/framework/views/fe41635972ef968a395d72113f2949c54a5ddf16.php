@@ -32,6 +32,10 @@
 			<input type="text" class="form-control" id="jk" name="jk">
 		</div>
 		<div class="form-group">
+			<label for="image">Foto Profil</label>
+			<input type="file" class="form-control" id="image" name="image">
+		</div>
+		<div class="form-group">
 			<label for="email">Email</label>
 			<input type="email" class="form-control" id="email" name="email">
 		</div>

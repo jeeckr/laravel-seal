@@ -40,10 +40,14 @@
                             </select>
                         </div>
 
-
                         <div class="form-group">
                             <label for="bab">BAB</label>
                             <input type="text" class="form-control" id="bab" name="bab">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="judul">Judul Materi</label>
+                            <input type="text" class="form-control" id="judul" name="judul">
                         </div>
 
                         <div class="form-group">

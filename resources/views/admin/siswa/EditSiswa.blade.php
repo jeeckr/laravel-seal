@@ -8,6 +8,12 @@
     </div>
     <div class="card-body">
 
+        @if ($errors->any())
+        @foreach($errors->all() as $error)
+        <div class="alert alert-danger" role="alert">{{ $error }}</div>
+        @endforeach
+        @endif
+
         <div class="container">
             <form action="{{ route('siswaUpdate', $siswa->id) }}" method="POST">
                 @csrf
@@ -46,12 +52,16 @@
                     <input type="text" class="form-control" id="jk" name="jk" value="{{ $siswa->jk }}">
                 </div>
                 <div class="form-group">
+                    <label for="image">Foto Profil</label>
+                    <input type="file" class="form-control" id="image" name="image" value="{{ $siswa->image }}">
+                </div>
+                <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" value="{{ $siswa->email }}">
                 </div>
                 <div class="form-group">
                     <label for="passsword">password</label>
-                    <input type="password" class="form-control" id="password" name="password" value="{{ $siswa->password }}">
+                    <input type="password" class="form-control" id="password" name="password" value="">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary" name="tambah">Simpan</button>

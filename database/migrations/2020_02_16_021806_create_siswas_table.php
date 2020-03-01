@@ -16,7 +16,7 @@ class CreateSiswasTable extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('id_kelas')->unsigned()->default(1);
-            $table->integer('nisn')->unique();
+            $table->string('nisn')->unique();
             $table->string('nama_depan');
             $table->string('nama_belakang');
             $table->string('alamat');
@@ -24,7 +24,7 @@ class CreateSiswasTable extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir')->nullable();
             $table->enum('jk', ['Laki-Laki', 'Perempuan'])->nullable();
-            $table->string('image')->default('default.png');
+            $table->string('image')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

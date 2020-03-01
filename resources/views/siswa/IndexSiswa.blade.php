@@ -6,6 +6,38 @@
     .section {
         margin-top: 1rem !important;
     }
+
+    .card-profil {
+        margin-bottom: 15px !important;
+    }
+
+    .nav-home {
+        width: 14rem !important;
+    }
+
+    .alert-success {
+        width: 100% !important;
+    }
+
+    .photo-profil {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-left: 1rem !important;
+    }
+
+    /* Calendar */
+    #myEvent {
+        font-size: 0.5rem !important;
+    }
+
+    #myEvent .fc-left {
+        display: none !important;
+    }
+
+    #myEvent .fc-right {
+        display: none !important;
+    }
 </style>
 
 @endsection
@@ -18,27 +50,31 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <div class="card">
+
+                    <div class="card card-profil">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <img class="mr-3 rounded-circle" width="50" src="../stisla/img/avatar/avatar-4.png" alt="avatar">
 
+                                <div class="col-md-4">
+                                    <img class="mr-3 rounded-circle photo-profil" src="{{ $siswa->showImage() }}" alt="avatar">
                                 </div>
+
                                 <div class="col-md-8">
                                     <div class="media-body">
                                         <h6 class="media-title">{{ $siswa->nama_depan }} {{ $siswa->nama_belakang }}</h6>
                                         <div class="text-small text-muted">{{ $siswa->nisn }}
-                                            <div class="bullet"></div> <span class="text-primary">Aktif</span>
+                                            <div class="bullet"></div> <span class="text-primary">Siswa</span>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
+
                             <hr>
+
                             <div class="row justify-content-center">
-                                <a href="{{ route('profilSiswa') }}">
-                                    <div class="badge badge-pill badge-primary">Edit Profil</div>
+                                <a href="{{ route('profilSiswa', $siswa->id) }}">
+                                    <div class="badge badge-pill badge-primary">View Profil</div>
                                 </a>
                             </div>
                         </div>
@@ -54,51 +90,131 @@
 
                             <div class="col-12 col-sm-12 col-md-3">
                                 <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-home">
                                         <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">Home</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-home">
                                         <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kelas</a>
                                     </li>
+                                    <li class="nav-item nav-home">
+                                        <a class="nav-link" id="tugas-tab4" data-toggle="tab" href="#tugas4" role="tab" aria-controls="tugas" aria-selected="false">Tugas</a>
+                                    </li>
+
                                 </ul>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
+
                 <div class="col-md-6">
                     <div class="card">
 
                         <div class="card-body">
 
-                            <div class="col-12 col-sm-12 col-md-6">
+                            @if ($message = Session::get('success'))
+
+                            <div class="alert alert-success">
+                                <p>{{ $message }}</p>
+                            </div>
+
+                            @endif
+
+                            <div class="col-12 col-sm-12 col-md-12">
                                 <div class="tab-content no-padding" id="myTab2Content">
                                     <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
 
-                                        @if ($message = Session::get('success'))
-
-                                        <div class="alert alert-success">
-                                            <p>{{ $message }}</p>
-                                        </div>
-
-                                        @endif
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-primary text-white-all">
+                                                <li class="breadcrumb-item"><i class="fas fa-tachometer-alt"></i> Home</li>
+                                            </ol>
+                                        </nav>
 
                                     </div>
+
                                     <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
-                                        Sed sed metus vel lacus hendrerit tempus. Sed efficitur velit tortor, ac efficitur est lobortis quis. Nullam lacinia metus erat, sed fermentum justo rutrum ultrices. Proin quis iaculis tellus. Etiam ac vehicula eros, pharetra consectetur dui. Aliquam convallis neque eget tellus efficitur, eget maximus massa imperdiet. Morbi a mattis velit. Donec hendrerit venenatis justo, eget scelerisque tellus pharetra a.
+
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-primary text-white-all">
+                                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-tachometer-alt"></i> Home</a></li>
+                                                <li class="breadcrumb-item"><a href="#"><i class="far fa-file"></i> Profil</a></li>
+
+                                            </ol>
+                                        </nav>
+
                                     </div>
+
                                     <div class="tab-pane fade" id="contact4" role="tabpanel" aria-labelledby="contact-tab4">
 
-                                        @foreach($mapel as $data)
-                                        <ul>
-                                            <li><a href="{{ route('mapelSiswa', $data->id) }}">{{ $data->nama_mapel}}</a></li>
-                                        </ul>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-primary text-white-all">
+                                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-tachometer-alt"></i> Home</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-list"></i> Data</li>
+                                            </ol>
+                                        </nav>
 
-                                        @endforeach
+                                        <ul>
+                                            @foreach($mapel as $data)
+
+                                            <div class="row mb-2">
+                                                <div class="col-md-8">
+                                                    <li>{{ $data->nama_mapel}}</li>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="{{ route('mapelSiswa', $data->id) }}"> <span class="badge badge-info">Lihat Materi</span></a>
+                                                </div>
+
+                                            </div>
+
+                                            @endforeach
+                                        </ul>
                                     </div>
+
+                                    <div class="tab-pane fade" id="tugas4" role="tabpanel" aria-labelledby="tugas-tab4">
+
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-primary text-white-all">
+                                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-tachometer-alt"></i> Home</a></li>
+                                                <li class="breadcrumb-item"><a href="#"><i class="far fa-file"></i> Library</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-list"></i> Data</li>
+                                            </ol>
+                                        </nav>
+
+                                        <div class="card-body p-0">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-md">
+                                                    <tr>
+                                                        <th>Mata Pelajaran</th>
+                                                        <th>Deadline</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jaringan Dasar</td>
+                                                        <td>2017-01-09</td>
+                                                        <td>
+                                                            <div class="badge badge-success">Selesai</div>
+                                                        </td>
+                                                        <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pemrograman Dasar</td>
+                                                        <td>2017-01-09</td>
+                                                        <td>
+                                                            <div class="badge badge-danger">Belum Selesai</div>
+                                                        </td>
+                                                        <td><a href="#" class="btn btn-secondary">Kerjakan</a></td>
+                                                    </tr>
+
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -107,7 +223,17 @@
                 </div>
 
                 <div class="col-md-3">
-                    test
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="fc-overflow">
+                                        <div id="myEvent"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

@@ -8,10 +8,13 @@
     <title><?php echo e($title); ?></title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="/assets/fonts/login/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('/assets/fonts/login/material-icon/css/material-design-iconic-font.min.css')); ?>">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="/assets/css/login/style.css">
+    <link rel="stylesheet" href="<?php echo e(asset('/assets/css/login/style.css')); ?>">
+
+    <?php echo $__env->yieldContent('style_css'); ?>
+
 </head>
 
 <body>

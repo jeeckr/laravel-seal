@@ -92,12 +92,12 @@
         </li>
 
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="../stisla/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                <img alt="image" src="<?php echo e($siswa->showImage()); ?>" class="rounded-circle mr-1 image-navbar">
                 <div class="d-sm-none d-lg-inline-block">Hi, <?php echo e($siswa->nama_depan); ?></div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Logged in 5 min ago</div>
-                <a href="<?php echo e(route('profilSiswa')); ?>" class="dropdown-item has-icon">
+                <a href="<?php echo e(route('profilSiswa', $siswa->id)); ?>" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
                 <a href="features-settings.html" class="dropdown-item has-icon">

@@ -11,8 +11,8 @@ class SiswaController extends Controller
 {
     public function index()
     {
-        $siswa = Siswa::first()->paginate(5);
-        return view('admin.siswa.IndexSiswa', compact('siswa'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $siswa = Siswa::all();
+        return view('admin.siswa.IndexSiswa', compact('siswa'));
     }
 
     /**
@@ -35,15 +35,22 @@ class SiswaController extends Controller
     {
 
         $request->validate([
-            'nisn' => 'required', 'unique:siswas',
+            'nisn' => 'required|min:10|max:10|unique:siswas',
             'nama_depan' => 'required', 'string', 'max:255',
             'nama_belakang' => 'required', 'string', 'max:255',
             'alamat' => 'required', 'string', 'max:255',
-            'telepon' => 'required', 'string', 'max:12',
+            'telepon' => 'required|string|min:11|max:12',
             'tempat_lahir' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
-            'password' => 'required', 'string', 'min:8', 'confirmed',
+            'password' => 'required', 'string', 'min:8',
         ]);
+
+        $path = null;
+
+        if ($request->has('image')) {
+            $path = $request->file('image')->store('image');
+        }
 
         Siswa::create([
             'nisn' => $request['nisn'],
@@ -52,9 +59,11 @@ class SiswaController extends Controller
             'alamat' => $request['alamat'],
             'telepon' => $request['telepon'],
             'tempat_lahir' => $request['tempat_lahir'],
+            'image' => $path,
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
+
 
         return redirect()->route('siswa')->with('success', 'Data berhasil ditambahkan!');
     }
@@ -91,18 +100,37 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $siswa = $request->validate([
-            'nisn' => 'required', 'unique:siswas',
-            'nama_depan' => 'required', 'string', 'max:255',
-            'nama_belakang' => 'required', 'string', 'max:255',
-            'alamat' => 'required', 'string', 'max:255',
-            'telepon' => 'required', 'string', 'max:12',
-            'tempat_lahir' => 'required',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
-            'password' => 'required', 'string', 'min:8', 'confirmed',
-        ]);
+        $data = Siswa::find($id);
 
-        Siswa::where('id', $id)->update($siswa);
+        if ($data->nisn != $request['nisn']) {
+            $request->validate([
+                'nisn' => 'required|min:10|max:10|unique:siswas',
+            ]);
+        }
+
+        if ($request->filled('password')) {
+            $request->validate([
+                'nama_depan' => 'required', 'string', 'max:255',
+                'nama_belakang' => 'required', 'string', 'max:255',
+                'alamat' => 'required', 'string', 'max:255',
+                'telepon' => 'required|string|min:11|max:12',
+                'tempat_lahir' => 'required',
+                'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
+                'password' => 'required', 'string', 'min:8',
+            ]);
+            $data->update($request->except('password') + ['password' => Hash::make($request['password'])]);
+        } else {
+            $request->validate([
+                'nama_depan' => 'required', 'string', 'max:255',
+                'nama_belakang' => 'required', 'string', 'max:255',
+                'alamat' => 'required', 'string', 'max:255',
+                'telepon' => 'required|string|min:11|max:12',
+                'tempat_lahir' => 'required',
+                'email' => 'required', 'string', 'email', 'max:255', 'unique:siswas',
+            ]);
+            $data->update($request->except('password'));
+        }
+
         return redirect()->route('siswa')->with('success', 'Data berhasil diubah!');
     }
 

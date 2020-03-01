@@ -13,6 +13,7 @@ class LogoutController extends Controller
         auth()->guard('admin')->logout();
         auth()->guard('guru')->logout();
         auth()->guard('siswa')->logout();
+        auth()->guard('kepsek')->logout();
         auth()->logout();
 
         return redirect()->route('home');

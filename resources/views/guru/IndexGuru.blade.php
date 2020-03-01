@@ -1,3 +1,11 @@
-<a href="{{ route('logout') }}">
-    <button>logout</button>
-</a>
+@extends('template.dashboardTemplate.guru.app')
+
+@section('style_css')
+
+@endsection
+
+@section('content')
+
+
+
+@endsection

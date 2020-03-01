@@ -37,6 +37,9 @@ class RedirectIfAuthenticated
         if (auth()->guard('siswa')->check()) {
             return redirect()->route('homeSiswa');
         }
+        if (auth()->guard('kepsek')->check()) {
+            return redirect()->route('homeKepsek');
+        }
 
         return $next($request);
     }

@@ -62,6 +62,11 @@ return [
             'provider' => 'siswa',
         ],
 
+        'kepsek' => [
+            'driver' => 'session',
+            'provider' => 'kepsek',
+        ],
+
     ],
 
     /*
@@ -100,6 +105,11 @@ return [
         'admin' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
+        ],
+
+        'kepsek' => [
+            'driver' => 'eloquent',
+            'model' => App\Kepsek::class,
         ],
 
     ],

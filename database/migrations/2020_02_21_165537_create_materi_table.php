@@ -17,6 +17,7 @@ class CreateMateriTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_mapel')->unsigned();
             $table->string('bab');
+            $table->string('judul');
             $table->text('isi_materi');
             $table->timestamps();
         });

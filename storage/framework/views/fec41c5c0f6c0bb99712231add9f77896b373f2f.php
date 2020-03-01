@@ -1,7 +1,9 @@
 <?php $__env->startSection('style_css'); ?>
 
 <style>
-
+  .btn-all {
+    width: 2.5rem !important;
+  }
 </style>
 
 <?php $__env->stopSection(); ?>
@@ -48,13 +50,13 @@
             <td><?php echo e($data->telepon); ?></td>
             <td><?php echo e($data->jk); ?></td>
             <td>
-              <a href="#" class="btn btn-info btn-circle">
-                <i class="fas fa-info-circle"></i>
+              <a href="#" class="btn btn-info btn-all">
+                <i class="fas fa-info"></i>
               </a>
-              <a href="<?php echo e(route('siswaEdit', $data->id)); ?>" class="btn btn-warning btn-circle">
-                <i class="fas fa-exclamation-triangle"></i>
+              <a href="<?php echo e(route('siswaEdit', $data->id)); ?>" class="btn btn-warning btn-all">
+                <i class="fas fa-edit"></i>
               </a>
-              <a href="<?php echo e(route('siswaHapus', $data->id)); ?>" class="btn btn-danger btn-circle">
+              <a href="<?php echo e(route('siswaHapus', $data->id)); ?>" class="btn btn-danger btn-all">
                 <i class="fas fa-trash"></i>
               </a>
             </td>
@@ -67,7 +69,7 @@
       <a href="<?php echo e(route('siswaTambah')); ?>" class="btn btn-primary mb-2">
         <span class="icon text-white-50">
         </span>
-        <span class="text">Tambah</span>
+        <span class="text">Tambah Siswa </span>
       </a>
 
     </div>

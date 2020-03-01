@@ -36,14 +36,25 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin']], function () {
 	Route::put('/guru/edit/{id}', 'Admin\GuruController@update')->name('guruUpdate');
 	Route::get('/guru/{id}', 'Admin\GuruController@destroy')->name('guruHapus');
 
+	Route::get('/kepsek', 'Admin\KepsekController@index')->name('kepsek');
+	Route::get('/kepsek/tambah', 'Admin\KepsekController@create')->name('kepsekTambah');
+	Route::post('/kepsek/tambah', 'Admin\KepsekController@store')->name('kepsekStore');
+	Route::get('/kepsek/edit/{id}', 'Admin\KepsekController@edit')->name('kepsekEdit');
+	Route::put('/kepsek/edit/{id}', 'Admin\KepsekController@update')->name('kepsekUpdate');
+	Route::get('/kepsek/{id}', 'Admin\KepsekController@destroy')->name('kepsekHapus');
+
 	Route::get('/mapel', 'Admin\MapelController@index')->name('mapel');
 	Route::get('/mapel/detail/{id}', 'Admin\MapelController@show')->name('detailMateri');
 	Route::get('/mapel/tambah', 'Admin\MapelController@create')->name('mapelTambah');
 	Route::post('/mapel/tambah', 'Admin\MapelController@store')->name('mapelStore');
+	Route::get('/mapel/edit/{id}', 'Admin\MapelController@edit')->name('mapelEdit');
+	Route::put('/mapel/edit/{id}', 'Admin\MapelController@update')->name('mapelUpdate');
 	Route::get('/mapel/{id}', 'Admin\MapelController@destroy')->name('mapelHapus');
 
 	Route::get('/materi/tambah', 'Admin\MateriController@create')->name('materiTambah');
 	Route::post('/materi/tambah', 'Admin\MateriController@store')->name('materiStore');
+	Route::get('/materi/{id}/edit', 'Admin\MateriController@edit')->name('materiEdit');
+	Route::put('/materi/{id}/edit', 'Admin\MateriController@update')->name('materiUpdate');
 	Route::get('/mapel/detail/materi/{id}', 'Admin\MateriController@destroy')->name('materiHapus');
 
 	Route::get('/pengajar', 'Admin\PengajarController@index')->name('pengajar');
@@ -60,6 +71,8 @@ Route::middleware('guest')->group(function () {
 	Route::post('login/siswa', 'NativeAuth\LoginSiswaController@store')->name('loginSiswaStore');
 	Route::get('login/guru', 'NativeAuth\LoginGuruController@index')->name('loginGuru');
 	Route::post('login/guru', 'NativeAuth\LoginGuruController@store')->name('loginGuruStore');
+	Route::get('login/kepsek', 'NativeAuth\LoginKepsekController@index')->name('loginKepsek');
+	Route::post('login/kepsek', 'NativeAuth\LoginKepsekController@store')->name('loginKepsekStore');
 
 	Route::get('/registrasi/guru', 'NativeAuth\RegisterGuruController@index')->name('formRegisterGuru');
 	Route::get('/registrasi/siswa', 'NativeAuth\RegisterSiswaController@index')->name('formRegisterSiswa');
@@ -69,14 +82,22 @@ Route::middleware('guest')->group(function () {
 
 Route::prefix('guru')->middleware('guru')->group(function () {
 	Route::get('dashboard', 'Guru\GuruController@index')->name('homeGuru');
+
+	Route::get('/dashboard/profil/{id}', 'Guru\ProfilController@index')->name('profilGuru');
+	Route::put('/dashboard/profil/{id}', 'Guru\ProfilController@update')->name('updateProfilGuru');
 });
 
 Route::prefix('siswa')->middleware('siswa')->group(function () {
 	Route::get('/dashboard', 'Siswa\SiswaController@index')->name('homeSiswa');
 
-	Route::get('/dashboard/profil', 'Siswa\ProfilController@index')->name('profilSiswa');
+	Route::get('/dashboard/profil/{id}', 'Siswa\ProfilController@index')->name('profilSiswa');
+	Route::put('/dashboard/profil/{id}', 'Siswa\ProfilController@update')->name('updateProfilSiswa');
 
 	Route::get('/dashboard/mapel/{id}', 'Siswa\MapelController@index')->name('mapelSiswa');
+});
+
+Route::prefix('kepsek')->middleware('kepsek')->group(function () {
+	Route::get('/dashboard', 'Kepsek\KepsekController@index')->name('homeKepsek');
 });
 
 Route::get('logout', 'NativeAuth\LogoutController@index')->name('logout');

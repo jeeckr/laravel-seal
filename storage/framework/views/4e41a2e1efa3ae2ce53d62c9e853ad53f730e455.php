@@ -2,30 +2,31 @@
 
 <head>
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/vendor/bootstrap/css/bootstrap.min.css')); ?>">
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/fonts/font-awesome-4.7.0/css/font-awesome.min.css')); ?>">
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/fonts/iconic/css/material-design-iconic-font.min.css')); ?>">
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/vendor/animate/animate.css')); ?>">
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/vendor/css-hamburgers/hamburgers.min.css')); ?>">
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/vendor/animsition/css/animsition.min.css')); ?>">
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/vendor/select2/select2.min.css')); ?>">
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/vendor/daterangepicker/daterangepicker.css')); ?>">
 
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/css/util.css">
-    <link rel="stylesheet" type="text/css" href="/loginAdmin/css/main.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/css/util.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/loginAdmin/css/main.css')); ?>">
 
     <style>
         .wrap-login100 {
             width: 400px !important;
             height: 80vh !important;
             padding: 40px 45px 37px 45px !important;
+            background: -moz-linear-gradient(top, #3a7bd5, #00d2ff) !important;
         }
     </style>
 
@@ -43,7 +44,7 @@
                     </span>
 
                     <span class="login100-form-title p-b-34 p-t-27">
-                        Log in
+                        Admin
                     </span>
 
                     <div class="wrap-input100 validate-input">
@@ -111,21 +112,21 @@ unset($__errorArgs, $__bag); ?>
 
 
 
-    <script src="/loginAdmin/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo e(asset('/loginAdmin/vendor/jquery/jquery-3.2.1.min.js')); ?>"></script>
 
-    <script src="/loginAdmin/vendor/animsition/js/animsition.min.js"></script>
+    <script src="<?php echo e(asset('/loginAdmin/vendor/animsition/js/animsition.min.js')); ?>"></script>
 
-    <script src="/loginAdmin/vendor/bootstrap/js/popper.js"></script>
-    <script src="/loginAdmin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo e(asset('/loginAdmin/vendor/bootstrap/js/popper.js')); ?>"></script>
+    <script src="<?php echo e(asset('/loginAdmin/vendor/bootstrap/js/bootstrap.min.js')); ?>"></script>
 
-    <script src="/loginAdmin/vendor/select2/select2.min.js"></script>
+    <script src="<?php echo e(asset('/loginAdmin/vendor/select2/select2.min.js')); ?>"></script>
 
-    <script src="/loginAdmin/vendor/daterangepicker/moment.min.js"></script>
-    <script src="/loginAdmin/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="<?php echo e(asset('/loginAdmin/vendor/daterangepicker/moment.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('/loginAdmin/vendor/daterangepicker/daterangepicker.js')); ?>"></script>
 
-    <script src="/loginAdmin/vendor/countdowntime/countdowntime.js"></script>
+    <script src="<?php echo e(asset('/loginAdmin/vendor/countdowntime/countdowntime.js')); ?>"></script>
 
-    <script src="/loginAdmin/js/main.js"></script>
+    <script src="<?php echo e(asset('/loginAdmin/js/main.js')); ?>"></script>
 
 </body>
 

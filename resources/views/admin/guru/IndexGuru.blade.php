@@ -1,5 +1,15 @@
 @extends('admin.app')
 
+@section('style_css')
+
+<style>
+  .btn-all {
+    width: 2.5rem !important;
+  }
+</style>
+
+@endsection
+
 @section('content')
 
 @if ($message = Session::get('success'))
@@ -11,6 +21,8 @@
 </div>
 
 @endif
+
+
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -45,13 +57,13 @@
             <td>{{ $data->jk }}</td>
             <td>{{ $data->email }}</td>
             <td>
-              <a href="#" class="btn btn-info btn-circle">
-                <i class="fas fa-info-circle"></i>
+              <a href="#" class="btn btn-info btn-all">
+                <i class="fas fa-info"></i>
               </a>
-              <a href="{{ route('guruEdit', $data['id']) }}" class="btn btn-warning btn-circle">
-                <i class="fas fa-exclamation-triangle"></i>
+              <a href="{{ route('guruEdit', $data['id']) }}" class="btn btn-warning btn-all">
+                <i class="fas fa-edit"></i>
               </a>
-              <a href="{{ route('guruHapus',$data['id']) }}" class="btn btn-danger btn-circle">
+              <a href="{{ route('guruHapus',$data['id']) }}" class="btn btn-danger btn-all">
                 <i class="fas fa-trash"></i>
               </a>
             </td>
@@ -64,7 +76,7 @@
       <a href="{{ route('guruTambah') }}" class="btn btn-primary mb-2">
         <span class="icon">
         </span>
-        <span class="text">Tambah</span>
+        <span class="text">Tambah Guru</span>
       </a>
 
     </div>

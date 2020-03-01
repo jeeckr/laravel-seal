@@ -38,7 +38,7 @@
         <h6 class="collapse-header">Custom Utilities:</h6>
         <a class="collapse-item" href="{{ route('siswa') }}">Siswa</a>
         <a class="collapse-item" href="{{ route('guru') }}">Guru</a>
-        <a class="collapse-item" href="utilities-animation.html">Kepala Sekolah</a>
+        <a class="collapse-item" href="{{ route('kepsek') }}">Kepala Sekolah</a>
       </div>
     </div>
   </li>
@@ -56,20 +56,6 @@
     <a class="nav-link" href="{{ route('mapel') }}">
       <i class="fas fa-fw fa-table"></i>
       <span>Mata Pelajaran</span></a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-      <i class="fas fa-fw fa-wrench"></i>
-      <span>Materi</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Custom Utilities:</h6>
-        <a class="collapse-item" href="{{ route('materiTambah') }}">Tambah Materi</a>
-
-      </div>
-    </div>
   </li>
 
   <!-- Nav Item - Tables -->

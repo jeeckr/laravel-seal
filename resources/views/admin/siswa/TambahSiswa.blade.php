@@ -1,9 +1,14 @@
 @extends('admin.app')
 
 @section('content')
+@if ($errors->any())
+@foreach($errors->all() as $error)
+<div class="alert alert-danger" role="alert">{{ $error }}</div>
+@endforeach
+@endif
 
 <div class="container">
-	<form action="{{ route('siswaStore') }}" method="POST">
+	<form action="{{ route('siswaStore') }}" method="POST" enctype="multipart/form-data">
 		@csrf
 		<div class="form-group">
 			<label for="nisn">NISN</label>
@@ -33,6 +38,11 @@
 		<div class="form-group">
 			<label for="tempat_lahir">Tempat Lahir</label>
 			<input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+
+		</div>
+		<div class="form-group">
+			<label for="image">Foto Profil</label>
+			<input type="file" class="form-control" id="image" name="image">
 
 		</div>
 		<div class="form-group">

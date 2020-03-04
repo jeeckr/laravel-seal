@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Mapel;
 use App\Materi;
 use App\Guru;
-use Datatable;
+use App\Kuis;
+use App\Jurusan;
 
 class MapelController extends Controller
 {
@@ -23,19 +24,24 @@ class MapelController extends Controller
     public function create()
     {
         $guru = Guru::all();
-        return view('admin.mapel.tambah_mapel', compact('guru'));
+        $jurusan = Jurusan::all();
+        return view('admin.mapel.tambah_mapel', compact('guru', 'jurusan'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'id_guru' => 'required',
+            'id_jurusan' => 'required',
             'nama_mapel' => 'required',
+            'deskripsi' => 'required',
         ]);
 
         Mapel::create([
             'id_guru' => $request['id_guru'],
+            'id_jurusan' => $request['id_jurusan'],
             'nama_mapel' => $request['nama_mapel'],
+            'deskripsi' => $request['deskripsi'],
         ]);
 
         return redirect()->route('mapel')->with('success', 'Data berhasil ditambah!');
@@ -71,5 +77,12 @@ class MapelController extends Controller
         Mapel::destroy($id);
         Materi::destroy('id_mapel', $id);
         return redirect()->route('mapel');
+    }
+
+    public function showKuis($id)
+    {
+        $mapel = Mapel::find($id);
+        $kuis = Kuis::where('id_mapel', $id)->get();
+        return view('admin.mapel.detail_kuis', compact('mapel', 'kuis'));
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Mapel;
 use App\Siswa;
 use App\Materi;
+use App\Kuis;
 use Illuminate\Support\Facades\Auth;
 
 class MapelController extends Controller
@@ -17,6 +18,7 @@ class MapelController extends Controller
         $siswa = Auth::guard('siswa')->user();
         $mapel = Mapel::find($id);
         $materi = Materi::where('id_mapel', $id)->get();
-        return view('siswa.mapel.index_mapel', compact('title', 'siswa', 'mapel', 'materi'));
+        $kuis = Kuis::where('id_mapel', $id)->get();
+        return view('siswa.mapel.index_mapel', compact('title', 'siswa', 'mapel', 'materi', 'kuis'));
     }
 }

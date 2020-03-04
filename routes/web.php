@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin']], function () {
 	Route::get('/kepsek/{id}', 'Admin\KepsekController@destroy')->name('kepsekHapus');
 
 	Route::get('/mapel', 'Admin\MapelController@index')->name('mapel');
+	Route::get('/mapel/{id}/kuis', 'Admin\MapelController@showKuis')->name('detailKuis');
 	Route::get('/mapel/detail/{id}', 'Admin\MapelController@show')->name('detailMateri');
 	Route::get('/mapel/tambah', 'Admin\MapelController@create')->name('mapelTambah');
 	Route::post('/mapel/tambah', 'Admin\MapelController@store')->name('mapelStore');
@@ -62,6 +63,16 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin']], function () {
 	Route::get('/kelas', 'Admin\KelasController@index')->name('kelas');
 	Route::get('/kelas/detail/{id}/siswa', 'Admin\KelasController@detailSiswa')->name('detailSiswa');
 	Route::get('/kelas/detail/{id}/mapel', 'Admin\KelasController@detailMapel')->name('detailMapel');
+
+	Route::get('/kuis', 'Admin\KuisController@index')->name('kuis');
+	Route::get('/kuis/tambah', 'Admin\KuisController@create')->name('kuisTambah');
+	Route::post('/kuis/tambah', 'Admin\KuisController@store')->name('kuisStore');
+	Route::get('/kuis/{id}/detail', 'Admin\KuisController@show')->name('soalDetail');
+	Route::get('/kuis/{id}', 'Admin\KuisController@destroy')->name('kuisHapus');
+
+	// Route::get('/kuis/{id}/soal', 'Admin\SoalController@index')->name('soal');
+	Route::get('/soal/tambah', 'Admin\SoalController@create')->name('soalTambah');
+	Route::post('/soal/tambah', 'Admin\SoalController@store')->name('soalStore');
 });
 
 Route::middleware('guest')->group(function () {
@@ -81,10 +92,13 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::prefix('guru')->middleware('guru')->group(function () {
-	Route::get('dashboard', 'Guru\GuruController@index')->name('homeGuru');
+	Route::get('/dashboard', 'Guru\GuruController@index')->name('homeGuru');
 
 	Route::get('/dashboard/profil/{id}', 'Guru\ProfilController@index')->name('profilGuru');
 	Route::put('/dashboard/profil/{id}', 'Guru\ProfilController@update')->name('updateProfilGuru');
+
+	Route::get('/dashboard/{id}', 'Guru\MateriController@destroy')->name('hapusMateriGuru');
+	Route::get('/dashboard/materi/{id}', 'Guru\MateriController@show')->name('detailMateriGuru');
 });
 
 Route::prefix('siswa')->middleware('siswa')->group(function () {
@@ -94,6 +108,16 @@ Route::prefix('siswa')->middleware('siswa')->group(function () {
 	Route::put('/dashboard/profil/{id}', 'Siswa\ProfilController@update')->name('updateProfilSiswa');
 
 	Route::get('/dashboard/mapel/{id}', 'Siswa\MapelController@index')->name('mapelSiswa');
+
+	Route::get('/dashboard/belajar/{id}', 'Siswa\BelajarController@index')->name('mulaiBelajar');
+
+	Route::get('/dashboard/mapel/kuis/{id}', 'Siswa\KuisController@index')->name('kuisSiswa');
+	Route::post('/dashboard/mapel/kuis/{id}', 'Siswa\KuisController@store')->name('kuisSiswaStore');
+
+	Route::get('/dashboard/nilai', 'Siswa\NilaiController@index')->name('nilai');
+
+	Route::get('/dashboard/tugas/{id}', 'Siswa\TugasController@index')->name('tugasSiswa');
+	Route::post('/dashboard/tugas/', 'Siswa\TugasController@store')->name('tugasSiswaStore');
 });
 
 Route::prefix('kepsek')->middleware('kepsek')->group(function () {

@@ -38,6 +38,16 @@ class Siswa extends Authenticatable
         return $this->belongsTo(Kelas::class, 'id_kelas');
     }
 
+    public function jawaban()
+    {
+        return $this->hasMany(JawabanSiswa::class);
+    }
+
+    public function nilai()
+    {
+        return $this->hasMany(Nilai::class);
+    }
+
     public function showImage()
     {
         if (Storage::has($this->image)) {

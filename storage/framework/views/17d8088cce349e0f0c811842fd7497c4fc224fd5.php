@@ -47,6 +47,9 @@
                             <a href="<?php echo e(route('detailMateri', $data['id'])); ?>">
                                 <button class="btn btn-primary ">Materi</button>
                             </a>
+                            <a href="<?php echo e(route('detailKuis', $data->id)); ?>">
+                                <button class="btn btn-primary ">Kuis</button>
+                            </a>
                             <a href="<?php echo e(route('mapelEdit', $data->id)); ?>" class="btn btn-warning btn-all">
                                 <i class="fas fa-edit"></i>
                             </a>

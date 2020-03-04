@@ -1,5 +1,15 @@
 @extends('admin.app')
 
+@section('style_css')
+
+<style>
+    .card-body {
+        height: 30rem !important;
+    }
+</style>
+
+@endsection
+
 @section('content')
 
 <div class="row">
@@ -21,8 +31,8 @@
                             @csrf
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="id_mapel">Guru</label>
-                                    <select class="form-control" id="id_guru" name="id_guru">
+                                    <label for="id_guru">Guru</label>
+                                    <select class=" form-control" id="id_guru" name="id_guru">
 
                                         @foreach ($guru as $data)
 
@@ -34,9 +44,28 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="id_jurusan">Jurusan</label>
+                                    <select class="form-control" id="id_jurusan" name="id_jurusan">
+
+                                        @foreach ($jurusan as $data)
+
+                                        <option value="{{ $data->id }}">{{ $data->kelas->nama_kelas }} {{ $data->nama_jurusan }}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-3">
                                 <label for="nama_mapel">Mata Pelajaran</label>
                                 <input type="text" class="form-control" id="nama_mapel" name="nama_mapel">
+                            </div>
+                            <div class="form-group">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea name="deskripsi" id="deskripsi" class="form-control" cols="30" rows="3"></textarea>
                             </div>
 
                             <div class="form-group">

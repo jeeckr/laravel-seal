@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Siswa;
 use App\Mapel;
-
+use App\Kuis;
 
 class SiswaController extends Controller
 {
@@ -16,6 +16,7 @@ class SiswaController extends Controller
         $title = 'Dashboard Siswa';
         $siswa = Auth::guard('siswa')->user();
         $mapel = Mapel::all();
-        return view('siswa.IndexSiswa', compact('title', 'siswa', 'mapel'));
+        $kuis = Kuis::all();
+        return view('siswa.IndexSiswa', compact('title', 'siswa', 'mapel', 'kuis'));
     }
 }

@@ -82,7 +82,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <div class="header">
+                            <div class="header text-center">
                                 <h5>Menu</h5>
                             </div>
 
@@ -99,10 +99,6 @@
                                     <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kelas</a>
                                     </li>
-                                    <li class="nav-item nav-home">
-                                        <a class="nav-link" id="tugas-tab4" data-toggle="tab" href="#tugas4" role="tab" aria-controls="tugas" aria-selected="false">Tugas</a>
-                                    </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -111,6 +107,13 @@
                 </div>
 
                 <div class="col-md-6">
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home</li>
+                        </ol>
+                    </nav>
+
                     <div class="card">
 
                         <div class="card-body">
@@ -127,94 +130,39 @@
                                 <div class="tab-content no-padding" id="myTab2Content">
                                     <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
 
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb bg-primary text-white-all">
-                                                <li class="breadcrumb-item"><i class="fas fa-tachometer-alt"></i> Home</li>
-                                            </ol>
-                                        </nav>
-
                                     </div>
 
                                     <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
-
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb bg-primary text-white-all">
-                                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-tachometer-alt"></i> Home</a></li>
-                                                <li class="breadcrumb-item"><a href="#"><i class="far fa-file"></i> Profil</a></li>
-
-                                            </ol>
-                                        </nav>
 
                                     </div>
 
                                     <div class="tab-pane fade" id="contact4" role="tabpanel" aria-labelledby="contact-tab4">
 
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb bg-primary text-white-all">
-                                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-tachometer-alt"></i> Home</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-list"></i> Data</li>
-                                            </ol>
-                                        </nav>
-
-                                        <ul>
-                                            @foreach($mapel as $data)
-
-                                            <div class="row mb-2">
-                                                <div class="col-md-8">
-                                                    <li>{{ $data->nama_mapel}}</li>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <a href="{{ route('mapelSiswa', $data->id) }}"> <span class="badge badge-info">Lihat Materi</span></a>
-                                                </div>
-
-                                            </div>
-
-                                            @endforeach
-                                        </ul>
-                                    </div>
-
-                                    <div class="tab-pane fade" id="tugas4" role="tabpanel" aria-labelledby="tugas-tab4">
-
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb bg-primary text-white-all">
-                                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-tachometer-alt"></i> Home</a></li>
-                                                <li class="breadcrumb-item"><a href="#"><i class="far fa-file"></i> Library</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-list"></i> Data</li>
-                                            </ol>
-                                        </nav>
-
-                                        <div class="card-body p-0">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped table-md">
+                                        <div class="card-header">
+                                            <h4>Kelas</h4>
+                                        </div>
+                                        <div class="table-responsive text-center">
+                                            <table class="table table-striped table-md table-mapel">
+                                                <thead class="">
                                                     <tr>
-                                                        <th>Mata Pelajaran</th>
-                                                        <th>Deadline</th>
-                                                        <th>Status</th>
+                                                        <th>Mata pelajaran</th>
                                                         <th>Action</th>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Jaringan Dasar</td>
-                                                        <td>2017-01-09</td>
-                                                        <td>
-                                                            <div class="badge badge-success">Selesai</div>
-                                                        </td>
-                                                        <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Pemrograman Dasar</td>
-                                                        <td>2017-01-09</td>
-                                                        <td>
-                                                            <div class="badge badge-danger">Belum Selesai</div>
-                                                        </td>
-                                                        <td><a href="#" class="btn btn-secondary">Kerjakan</a></td>
-                                                    </tr>
+                                                </thead>
 
-                                                </table>
-                                            </div>
+                                                @foreach($mapel as $data)
+                                                <tr>
+
+                                                    <td>{{ $data->nama_mapel}}</td>
+                                                    <td>
+                                                        <a href="{{ route('mapelSiswa', $data->id) }}"> <span class="badge badge-info">Lihat Materi</span></a>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+
+                                            </table>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
 

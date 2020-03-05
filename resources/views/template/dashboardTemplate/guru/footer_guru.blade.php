@@ -7,10 +7,15 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.min.js"></script>
 
 <!-- JS Libraies -->
 <script src="{{ asset('/stisla/modules/fullcalendar/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('/stisla/js/page/modules-calendar.js') }}"></script>
+<!-- <script src="{{ asset('/assets/js/summernote-bs4.js') }}"></script> -->
+<script src="{{ asset('/assets/js/jquery.selectric.min.js') }}"></script>
+<!-- <script src="{{ asset('/assets/js/codemirror.js') }}"></script> -->
+<!-- <script src="{{ asset('/assets/js/javascript.js') }}"></script> -->
 
 <!-- Template JS File -->
 <script src="{{ asset('/stisla/js/scripts.js') }}"></script>
@@ -18,6 +23,7 @@
 <script src="{{ asset('/stisla/js/stisla.js') }}"></script>
 
 <!-- Page Specific JS File -->
+<script src="{{ asset('/assets/js/bootstrap-modal.js') }}"></script>
 </body>
 
 </html>

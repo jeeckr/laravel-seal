@@ -63,7 +63,11 @@ class MateriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title = 'Edit Materi';
+        $guru = Auth::guard('guru')->user();
+        $mapel = Mapel::where('id_guru', $guru->id)->first();
+        $materi = Materi::find($id);
+        return view('guru.materi.edit_materi', compact('title', 'guru', 'mapel', 'materi'));
     }
 
     /**
@@ -75,7 +79,14 @@ class MateriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $materi = $request->validate([
+            'bab' => 'required',
+            'judul' => 'required',
+            'isi_materi' => 'required',
+        ]);
+
+        Materi::where('id', $id)->update($materi);
+        return redirect()->route('homeGuru')->with('success', 'Data materi berhasil diubah!');
     }
 
     /**

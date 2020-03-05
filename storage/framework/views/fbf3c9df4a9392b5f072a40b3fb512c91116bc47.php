@@ -78,7 +78,7 @@
                                         <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-selected="false">Mata Pelajaran</a>
                                     </li>
                                     <li class="nav-item nav-home">
-                                        <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kelas</a>
+                                        <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kuis</a>
                                     </li>
                                 </ul>
                             </div>
@@ -109,6 +109,8 @@
 
                             <div class="col-12 col-sm-12 col-md-12">
                                 <div class="tab-content no-padding" id="myTab2Content">
+
+                                    <!-- Home -->
                                     <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
                                         <?php echo e($guru->id); ?>
 
@@ -116,6 +118,7 @@
 
                                     </div>
 
+                                    <!-- Mata Pelajaran -->
                                     <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
 
                                         <div class="card-body p-0">
@@ -134,7 +137,7 @@
                                                         <td><?php echo e($data->bab); ?></td>
                                                         <td><?php echo e($data->judul); ?></td>
                                                         <td>
-                                                            <a href="">
+                                                            <a href="<?php echo e(route('editMateriGuru', $data->id)); ?>">
                                                                 <div class="badge badge-warning">
                                                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                                                 </div>
@@ -159,10 +162,55 @@
 
                                     </div>
 
+                                    <!-- Kuis -->
                                     <div class="tab-pane fade" id="contact4" role="tabpanel" aria-labelledby="contact-tab4">
 
                                         <div class="card-header">
-                                            <h4>Kelas</h4>
+                                            <h4>Kuis</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive text-center">
+                                                <table class="table table-striped table-md table-materi">
+                                                    <thead class="bg-primary">
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Judul</th>
+                                                            <th>Jumlah Soal</th>
+                                                            <th>Waktu</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <?php $no = 0 ?>
+                                                    <?php $__currentLoopData = $kuis; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php $no++ ?>
+                                                    <tr>
+                                                        <td><?php echo e($no); ?></td>
+                                                        <td><?php echo e($data->judul); ?></td>
+                                                        <td><?php echo e($data->jumlah_soal); ?></td>
+                                                        <td><?php echo e($data->waktu); ?></td>
+                                                        <td>
+                                                            <!-- <a href="<?php echo e(route('editMateriGuru', $data->id)); ?>">
+                                                                <div class="badge badge-warning">
+                                                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                                                </div>
+                                                            </a>
+                                                            <a href="<?php echo e(route('hapusMateriGuru', $data->id)); ?>">
+                                                                <div class="badge badge-danger">
+                                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                </div>
+                                                            </a> -->
+                                                            <a href="<?php echo e(route('indexSoalGuru', $data->id)); ?>">
+                                                                <div class="badge badge-info">
+                                                                    <i class="fa fa-info" aria-hidden="true"></i>
+                                                                </div>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                                </table>
+                                            </div>
                                         </div>
 
                                     </div>

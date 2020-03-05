@@ -1,7 +1,8 @@
 <?php
 
+use App\Events\FormSubmitted;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 /*
@@ -99,6 +100,12 @@ Route::prefix('guru')->middleware('guru')->group(function () {
 
 	Route::get('/dashboard/{id}', 'Guru\MateriController@destroy')->name('hapusMateriGuru');
 	Route::get('/dashboard/materi/{id}', 'Guru\MateriController@show')->name('detailMateriGuru');
+	Route::get('/dashboard/materi/{id}/edit', 'Guru\MateriController@edit')->name('editMateriGuru');
+	Route::put('/dashboard/materi/{id}/edit', 'Guru\MateriController@update')->name('updateMateriGuru');
+
+	Route::get('/dashboard/kuis/{id}/soal', 'Guru\SoalController@index')->name('indexSoalGuru');
+	Route::get('/dashboard/soal/tambah/{id}', 'Guru\SoalController@create')->name('tambahSoalGuru');
+	Route::post('/dashboard/soal/tambah', 'Guru\SoalController@store')->name('storeSoalGuru');
 });
 
 Route::prefix('siswa')->middleware('siswa')->group(function () {
@@ -122,6 +129,23 @@ Route::prefix('siswa')->middleware('siswa')->group(function () {
 
 Route::prefix('kepsek')->middleware('kepsek')->group(function () {
 	Route::get('/dashboard', 'Kepsek\KepsekController@index')->name('homeKepsek');
+});
+
+Route::get('firebase', 'FirebaseController@index');
+
+Route::get('/chat', function () {
+	return view('chat.chats');
+});
+
+Route::get('/sender', function () {
+	return view('chat.sender');
+});
+
+Route::post('/sender', function () {
+	$text = request()->text;
+	echo $text;
+	die;
+	event(new FormSubmitted($text));
 });
 
 Route::get('logout', 'NativeAuth\LogoutController@index')->name('logout');

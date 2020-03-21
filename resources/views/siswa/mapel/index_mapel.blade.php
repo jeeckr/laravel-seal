@@ -224,7 +224,10 @@
                                                             <div class="badge badge-warning">Belum Selesai</div>
                                                             @endif
                                                         </td>
-                                                        <td><a href="{{ route('kuisSiswa', $data->id) }}"><button class="btn btn-secondary" id="btn-kerjakan">Kerjakan</button></a></td>
+                                                        <td>
+                                                            <a href="{{ route('nilai', $data->id) }}"><button class="btn btn-warning">Nilai</button></a>
+                                                            <a href="{{ route('kuisSiswa', $data->id) }}"><button class="btn btn-secondary" id="btn-kerjakan">Kerjakan</button></a>
+                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                 </table>

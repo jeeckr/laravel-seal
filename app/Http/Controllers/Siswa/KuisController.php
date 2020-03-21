@@ -36,7 +36,6 @@ class KuisController extends Controller
         $jawaban->id_soal = $id;
         $jawaban->jawaban = $request->pilihan;
 
-        $soal = Soal::find($id);
         if ($soal->kunci == $request->pilihan) {
             $jawaban->hasil = 1;
 
@@ -62,7 +61,7 @@ class KuisController extends Controller
 
             session()->forget('nilai');
 
-            return redirect()->route('nilai');
+            return redirect()->route('nilai', ['kuis' => $kuis->id]);
         }
 
         return redirect($request->next);

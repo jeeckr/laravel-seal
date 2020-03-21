@@ -137,7 +137,7 @@ Route::prefix('siswa')->middleware('siswa')->group(function () {
 	Route::get('/dashboard/mapel/kuis/{id}', 'Siswa\KuisController@index')->name('kuisSiswa');
 	Route::post('/dashboard/mapel/kuis/{id}', 'Siswa\KuisController@store')->name('kuisSiswaStore');
 
-	Route::get('/dashboard/nilai', 'Siswa\NilaiController@index')->name('nilai');
+	Route::get('/dashboard/nilai/{id}', 'Siswa\NilaiController@index')->name('nilai');
 
 	Route::get('/dashboard/tugas/{id}', 'Siswa\TugasController@index')->name('tugasSiswa');
 	Route::post('/dashboard/tugas/', 'Siswa\TugasController@store')->name('tugasSiswaStore');

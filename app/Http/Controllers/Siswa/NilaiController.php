@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Siswa;
 
 use App\Http\Controllers\Controller;
+use App\Kuis;
+use App\Nilai;
+use App\Soal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,6 +20,7 @@ class NilaiController extends Controller
     {
         $title = 'Nilai';
         $siswa = Auth::guard('siswa')->user();
+        // $nilai = Nilai::where(['id_siswa' => $siswa->id])->where('id_kuis',)->get();
         return view('siswa.mapel.nilai.index_nilai', compact('title', 'siswa'));
     }
 

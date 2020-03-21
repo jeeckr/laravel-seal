@@ -78,7 +78,7 @@ class GuruController extends Controller
                 'alamat' => 'required', 'string', 'max:255',
                 'telepon' => 'required', 'string', 'max:12',
                 'tempat_lahir' => 'required',
-                'email' => 'required', 'string', 'email', 'max:255', 'unique:kepsek',
+                'email' => 'required', 'string', 'email', 'max:255', 'unique:guru',
                 'password' => 'string', 'min:8',
             ]);
 
@@ -90,7 +90,7 @@ class GuruController extends Controller
                 'alamat' => 'required', 'string', 'max:255',
                 'telepon' => 'required', 'string', 'max:12',
                 'tempat_lahir' => 'required',
-                'email' => 'required', 'string', 'email', 'max:255', 'unique:kepsek',
+                'email' => 'required', 'string', 'email', 'max:255', 'unique:guru',
             ]);
             $data->update($request->except('password'));
         }

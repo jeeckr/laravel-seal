@@ -1,13 +1,14 @@
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
-    <a href="{{ route('homeSiswa') }}" class="navbar-brand sidebar-gone-hide">E-Learning</a>
+    <a href="{{ route('homeSiswa') }}" class="navbar-brand sidebar-gone-hide">SEAL</a>
 
-    <div class="nav-collapse">
+    <div class="nav-collapse mx-auto">
         <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
             <i class="fas fa-ellipsis-v"></i>
         </a>
         <ul class="navbar-nav">
             <li class="nav-item"><a href="{{ route('homeGuru') }}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{{ route('profilGuru', $guru->id) }}" class="nav-link">Profil</a></li>
         </ul>
     </div>
 

@@ -18,7 +18,16 @@
             <form action="{{ route('siswaUpdate', $siswa->id) }}" method="POST">
                 @csrf
                 @method('PUT')
+                <div class="form-group">
+                    <label for="id_kelas_jurusan">Kelas</label>
+                    <select class="form-control" id="id_kelas_jurusan" name="id_kelas_jurusan">
+                        <option value="{{ $siswa->id_kelas_jurusan }}">{{ $kelsis->kelas->nama_kelas }} {{ $kelsis->jurusan->nama_jurusan }}</option>
+                        @foreach($keljur as $data)
+                        <option value="{{ $data->id }}">{{ $data->kelas->nama_kelas }} {{ $data->jurusan->nama_jurusan }}</option>
 
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="nisn">NISN</label>
                     <input type="text" class="form-control" id="nisn" name="nisn" value="{{ $siswa->nisn }}">

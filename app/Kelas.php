@@ -16,7 +16,12 @@ class Kelas extends Model
 
     public function jurusan()
     {
-        return $this->hasMany(Jurusan::class);
+        return $this->belongsToMany(Jurusan::class, 'kelas_jurusan');
+    }
+
+    public function kelasJurusan()
+    {
+        return $this->hasMany(KelasJurusan::class);
     }
 
     public function siswa()
@@ -24,8 +29,8 @@ class Kelas extends Model
         return $this->hasMany(Siswa::class);
     }
 
-    public function mapel()
-    {
-        return $this->hasMany(Mapel::class);
-    }
+    // public function mapel()
+    // {
+    //     return $this->hasMany(Mapel::class);
+    // }
 }

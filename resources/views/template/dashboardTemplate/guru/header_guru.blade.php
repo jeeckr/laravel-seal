@@ -16,10 +16,8 @@
 
     <!-- Library -->
     <link rel="stylesheet" href="{{ asset('/stisla/css/fullcalendar.min.css') }}">
-    <!-- <link rel="stylesheet" href="{{ asset('/assets/css/summernote-bs4.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/css/selectric.css') }}"> -->
-    <!-- <link rel="stylesheet" href="{{ asset('/assets/css/codemirror.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/css/duotone-dark.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/select.bootstrap4.min.css') }}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('/stisla/css/style.css') }}">

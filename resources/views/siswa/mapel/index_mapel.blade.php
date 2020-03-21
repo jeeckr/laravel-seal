@@ -91,6 +91,10 @@
     .table-kuis thead th {
         color: white !important;
     }
+
+    .btn-belajar {
+        float: right;
+    }
 </style>
 
 @endsection
@@ -103,34 +107,8 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <div class="card card-profil">
-                        <div class="card-body">
-                            <div class="row">
 
-                                <div class="col-md-4">
-                                    <img class="mr-3 rounded-circle photo-profil" src="{{ $siswa->showImage() }}" alt="avatar">
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="media-body">
-                                        <h6 class="media-title">{{ $siswa->nama_depan }} {{ $siswa->nama_belakang }}</h6>
-                                        <div class="text-small text-muted">{{ $siswa->nisn }}
-                                            <div class="bullet"></div> <span class="text-primary">Siswa</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <hr>
-
-                            <div class="row justify-content-center">
-                                <a href="{{ route('profilSiswa', $siswa->id) }}">
-                                    <div class="badge badge-pill badge-primary">View Profil</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @include('template.dashboardTemplate.siswa.sidebar_profil_siswa')
 
                     <div class="card">
                         <div class="card-body">
@@ -183,7 +161,7 @@
                                             </div>
                                             <div class="card-footer">
                                                 <a href="{{ route('mulaiBelajar', $mapel->id) }}">
-                                                    <button class="btn btn-primary">Mulai Belajar</button>
+                                                    <button class="btn btn-primary btn-belajar">Mulai Belajar</button>
                                                 </a>
                                             </div>
                                         </div>
@@ -204,7 +182,7 @@
                                                             Bab {{ $data->bab }}. {{ $data->judul}}
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <a href="#" class="badge badge-warning btn-lihat">Lihat</a>
+                                                            <a href="{{ route('indexMateriSiswa', $data->id) }}" class="badge badge-warning btn-lihat">Lihat</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -237,12 +215,18 @@
                                                         <td>{{ $data->mapel->nama_mapel}}</td>
                                                         <td>2017-01-09</td>
                                                         <td>
+                                                            @if($data->status_siswa == 1)
+                                                            <div class="badge badge-warning">Selesai</div>
+                                                            <script>
+                                                                document.getElementById("btn-kerjakan").disabled = true;
+                                                            </script>
+                                                            @else
                                                             <div class="badge badge-warning">Belum Selesai</div>
+                                                            @endif
                                                         </td>
-                                                        <td><a href="{{ route('kuisSiswa', $data->id) }}" class="btn btn-secondary">Kerjakan</a></td>
+                                                        <td><a href="{{ route('kuisSiswa', $data->id) }}"><button class="btn btn-secondary" id="btn-kerjakan">Kerjakan</button></a></td>
                                                     </tr>
                                                     @endforeach
-
                                                 </table>
                                             </div>
                                         </div>
@@ -259,5 +243,11 @@
         </div>
     </section>
 </div>
+
+<script>
+    function disableButton() {
+        document.getElementById("btn-kerjakan").disabled = true;
+    }
+</script>
 
 @endsection

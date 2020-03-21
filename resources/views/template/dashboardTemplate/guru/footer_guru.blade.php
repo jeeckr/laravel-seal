@@ -12,10 +12,10 @@
 <!-- JS Libraies -->
 <script src="{{ asset('/stisla/modules/fullcalendar/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('/stisla/js/page/modules-calendar.js') }}"></script>
-<!-- <script src="{{ asset('/assets/js/summernote-bs4.js') }}"></script> -->
 <script src="{{ asset('/assets/js/jquery.selectric.min.js') }}"></script>
-<!-- <script src="{{ asset('/assets/js/codemirror.js') }}"></script> -->
-<!-- <script src="{{ asset('/assets/js/javascript.js') }}"></script> -->
+<script src="{{ asset('/assets/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.select.min.js') }}"></script>
 
 <!-- Template JS File -->
 <script src="{{ asset('/stisla/js/scripts.js') }}"></script>
@@ -23,7 +23,10 @@
 <script src="{{ asset('/stisla/js/stisla.js') }}"></script>
 
 <!-- Page Specific JS File -->
-<script src="{{ asset('/assets/js/bootstrap-modal.js') }}"></script>
+<script src="{{ asset('/stisla/js/page/bootstrap-modal.js') }}"></script>
+<script src="{{ asset('/stisla/js/page/modules-datatables.js') }}"></script>
+
+
 </body>
 
 </html>

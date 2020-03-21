@@ -16,11 +16,21 @@ class Jurusan extends Model
 
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class, 'id_kelas');
+        return $this->belongsToMany(Kelas::class);
+    }
+
+    public function kelasJurusan()
+    {
+        return $this->hasMany(KelasJurusan::class);
     }
 
     public function mapel()
     {
         return $this->belongsToMany(Mapel::class);
+    }
+
+    public function siswa()
+    {
+        return $this->hasMany(Siswa::class);
     }
 }

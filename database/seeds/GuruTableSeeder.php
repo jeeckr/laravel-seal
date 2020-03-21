@@ -23,5 +23,29 @@ class GuruTableSeeder extends Seeder
             'email' => 'guru@gmail.com',
             'password' => bcrypt('password')
         ]);
+
+        DB::table('guru')->insert([
+            'nip' => '02',
+            'nama_depan' => 'Black',
+            'nama_belakang' => 'Metal',
+            'alamat' => 'jl. Kedung Baruk',
+            'telepon' => '089776993667',
+            'tempat_lahir' => 'Surabaya',
+            'jk' => 'Laki-Laki',
+            'email' => 'black@gmail.com',
+            'password' => bcrypt('password')
+        ]);
+
+        DB::table('guru')->insert([
+            'nip' => '03',
+            'nama_depan' => 'Mata',
+            'nama_belakang' => 'Kucing',
+            'alamat' => 'jl. Kedung Baruk',
+            'telepon' => '089776993667',
+            'tempat_lahir' => 'Surabaya',
+            'jk' => 'Laki-Laki',
+            'email' => 'mata@gmail.com',
+            'password' => bcrypt('password')
+        ]);
     }
 }

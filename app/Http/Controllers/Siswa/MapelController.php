@@ -8,6 +8,7 @@ use App\Mapel;
 use App\Siswa;
 use App\Materi;
 use App\Kuis;
+use App\Status;
 use Illuminate\Support\Facades\Auth;
 
 class MapelController extends Controller
@@ -19,6 +20,8 @@ class MapelController extends Controller
         $mapel = Mapel::find($id);
         $materi = Materi::where('id_mapel', $id)->get();
         $kuis = Kuis::where('id_mapel', $id)->get();
-        return view('siswa.mapel.index_mapel', compact('title', 'siswa', 'mapel', 'materi', 'kuis'));
+        $status = Status::where('id_siswa', $siswa->id)->get();
+
+        return view('siswa.mapel.index_mapel', compact('title', 'siswa', 'mapel', 'materi', 'kuis', 'status'));
     }
 }

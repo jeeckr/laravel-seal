@@ -18,10 +18,9 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $jurusan = Jurusan::get();
         $siswa = Siswa::get();
-        $kelas = Kelas::get();
-        return view('admin.kelas.index_kelas', compact('jurusan', 'siswa', 'kelas'));
+        $kelas = Kelas::all();
+        return view('admin.kelas.index_kelas', compact('siswa', 'kelas'));
     }
 
     /**
@@ -55,19 +54,19 @@ class KelasController extends Controller
     {
     }
 
-    public function detailSiswa($id)
-    {
-        $kelas = Kelas::find($id);
-        $siswa = Siswa::where('id_kelas', $id)->get();
-        return view('admin.kelas.detail_siswa', compact('kelas', 'siswa'));
-    }
+    // public function detailSiswa($id)
+    // {
+    //     $kelas = Kelas::find($id);
+    //     $siswa = Siswa::where('id_kelas', $id)->get();
+    //     return view('admin.kelas.detail_siswa', compact('kelas', 'siswa'));
+    // }
 
-    public function detailMapel($id)
-    {
-        $kelas = Kelas::find($id);
-        $mapel = Mapel::where('id_kelas', $id)->get();
-        return view('admin.kelas.detail_mapel', compact('kelas', 'mapel'));
-    }
+    // public function detailMapel($id)
+    // {
+    //     $kelas = Kelas::find($id);
+    //     $mapel = Mapel::where('id_kelas', $id)->get();
+    //     return view('admin.kelas.detail_mapel', compact('kelas', 'mapel'));
+    // }
 
     public function edit($id)
     {

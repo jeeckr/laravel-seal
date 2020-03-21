@@ -39,21 +39,6 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="card card-profil">
-                        <div class="card-body">
-                            <div class="row">
-
-                                <div class="card-header">
-                                    <h4>Informasi</h4>
-                                </div>
-                                <div class="card-bory">
-                                    <p>{{ $mapel->nama_mapel }}</p>
-                                    Jumlah Materi :
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="col-md-6">

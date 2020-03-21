@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
 
 <head>
     <title>Pusher Test</title>
     <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         // Enable pusher logging - don't include this in production
         Pusher.logToConsole = true;
@@ -15,7 +13,7 @@
         });
 
         var channel = pusher.subscribe('my-channel');
-        channel.bind('App\\Events\\FormSubmitted', function(data) {
+        channel.bind('my-event', function(data) {
             alert(JSON.stringify(data));
         });
     </script>
@@ -28,5 +26,3 @@
         with event name <code>my-event</code>.
     </p>
 </body>
-
-</html>

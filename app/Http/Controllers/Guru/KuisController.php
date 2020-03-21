@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
+use App\Kuis;
+use App\Mapel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KuisController extends Controller
 {
@@ -23,7 +26,10 @@ class KuisController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Kuis';
+        $guru = Auth::guard('guru')->user();
+        $mapel = Mapel::where('id_guru', $guru->id)->first();
+        return view('guru.kuis.tambah_kuis', compact('title', 'guru', 'mapel'));
     }
 
     /**
@@ -34,7 +40,21 @@ class KuisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'id_mapel' => 'required',
+            'judul' => 'required',
+            'jumlah_soal' => 'required',
+            'waktu' => 'required',
+        ]);
+
+        Kuis::create([
+            'id_mapel' => $request['id_mapel'],
+            'judul' => $request['judul'],
+            'jumlah_soal' => $request['jumlah_soal'],
+            'waktu' => $request['waktu'],
+        ]);
+        return redirect()->route('homeGuru');
     }
 
     /**

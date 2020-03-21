@@ -13,6 +13,7 @@ class SiswaTableSeeder extends Seeder
     public function run()
     {
         DB::table('siswas')->insert([
+            'id_kelas_jurusan' => 1,
             'nisn' => '01',
             'nama_depan' => 'Siswa',
             'nama_belakang' => 'Sandy',

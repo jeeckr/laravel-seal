@@ -9,7 +9,7 @@ class Mapel extends Model
     protected $table = 'mapel';
 
     protected $fillable = [
-        'id_guru', 'id_jurusan', 'nama_mapel', 'deskripsi',
+        'id_guru', 'id_kelas_jurusan', 'nama_mapel', 'deskripsi',
     ];
 
     public function materi()
@@ -22,14 +22,9 @@ class Mapel extends Model
         return $this->belongsTo(Guru::class, 'id_guru');
     }
 
-    public function kelas()
+    public function kelasJurusan()
     {
-        return $this->belongsTo(Kelas::class, 'id_kelas');
-    }
-
-    public function jurusan()
-    {
-        return $this->belongsToMany(Jurusan::class);
+        return $this->belongsTo(KelasJurusan::class, 'id_kelas_jurusan');
     }
 
     public function kuis()

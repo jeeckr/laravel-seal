@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\KelasJurusan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Siswa;
+use App\Kelas;
 
 class SiswaController extends Controller
 {
@@ -22,7 +24,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('admin.siswa.TambahSiswa');
+        $keljur = KelasJurusan::all();
+        return view('admin.siswa.TambahSiswa', compact('keljur'));
     }
 
     /**
@@ -35,6 +38,7 @@ class SiswaController extends Controller
     {
 
         $request->validate([
+            'id_kelas_jurusan' => 'required',
             'nisn' => 'required|min:10|max:10|unique:siswas',
             'nama_depan' => 'required', 'string', 'max:255',
             'nama_belakang' => 'required', 'string', 'max:255',
@@ -53,6 +57,7 @@ class SiswaController extends Controller
         }
 
         Siswa::create([
+            'id_kelas_jurusan' => $request['id_kelas_jurusan'],
             'nisn' => $request['nisn'],
             'nama_depan' => $request['nama_depan'],
             'nama_belakang' => $request['nama_belakang'],
@@ -88,7 +93,9 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $siswa = Siswa::find($id);
-        return view('admin.siswa.EditSiswa', ['siswa' => $siswa]);
+        $kelsis = KelasJurusan::where('id', $siswa->id_kelas_jurusan)->first();
+        $keljur = KelasJurusan::all();
+        return view('admin.siswa.EditSiswa', compact('siswa', 'keljur', 'kelsis'));
     }
 
     /**
@@ -110,6 +117,7 @@ class SiswaController extends Controller
 
         if ($request->filled('password')) {
             $request->validate([
+                'id_kelas_jurusan' => 'required',
                 'nama_depan' => 'required', 'string', 'max:255',
                 'nama_belakang' => 'required', 'string', 'max:255',
                 'alamat' => 'required', 'string', 'max:255',
@@ -121,6 +129,7 @@ class SiswaController extends Controller
             $data->update($request->except('password') + ['password' => Hash::make($request['password'])]);
         } else {
             $request->validate([
+                'id_kelas_jurusan' => 'required',
                 'nama_depan' => 'required', 'string', 'max:255',
                 'nama_belakang' => 'required', 'string', 'max:255',
                 'alamat' => 'required', 'string', 'max:255',

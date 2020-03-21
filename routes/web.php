@@ -61,9 +61,17 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin']], function () {
 
 	Route::get('/pengajar', 'Admin\PengajarController@index')->name('pengajar');
 
-	Route::get('/kelas', 'Admin\KelasController@index')->name('kelas');
-	Route::get('/kelas/detail/{id}/siswa', 'Admin\KelasController@detailSiswa')->name('detailSiswa');
-	Route::get('/kelas/detail/{id}/mapel', 'Admin\KelasController@detailMapel')->name('detailMapel');
+	Route::get('/jurusan', 'Admin\JurusanController@index')->name('jurusan');
+
+	Route::get('/kelas_jurusan', 'Admin\KelasJurusanController@index')->name('kelas_jurusan');
+	Route::get('/kelas_jurusan/tambah', 'Admin\KelasJurusanController@create')->name('tambah_kelas_jurusan');
+	Route::post('/kelas_jurusan/tambah', 'Admin\KelasJurusanController@store')->name('store_kelas_jurusan');
+	Route::get('/kelas_jurusan/{id}/siswa', 'Admin\KelasJurusanController@detailSiswa')->name('detailSiswa');
+	Route::get('/kelas_jurusan/{id}/mapel', 'Admin\KelasJurusanController@detailMapel')->name('detailMapel');
+
+	// Route::get('/kelas', 'Admin\KelasController@index')->name('kelas');
+	// Route::get('/kelas/detail/{id}/siswa', 'Admin\KelasController@detailSiswa')->name('detailSiswa');
+	// Route::get('/kelas/detail/{id}/mapel', 'Admin\KelasController@detailMapel')->name('detailMapel');
 
 	Route::get('/kuis', 'Admin\KuisController@index')->name('kuis');
 	Route::get('/kuis/tambah', 'Admin\KuisController@create')->name('kuisTambah');
@@ -100,12 +108,18 @@ Route::prefix('guru')->middleware('guru')->group(function () {
 
 	Route::get('/dashboard/{id}', 'Guru\MateriController@destroy')->name('hapusMateriGuru');
 	Route::get('/dashboard/materi/{id}', 'Guru\MateriController@show')->name('detailMateriGuru');
-	Route::get('/dashboard/materi/{id}/edit', 'Guru\MateriController@edit')->name('editMateriGuru');
-	Route::put('/dashboard/materi/{id}/edit', 'Guru\MateriController@update')->name('updateMateriGuru');
+	Route::get('/dashboard/materi/edit/{id}', 'Guru\MateriController@edit')->name('editMateriGuru');
+	Route::put('/dashboard/materi/edit/{id}', 'Guru\MateriController@update')->name('updateMateriGuru');
+
+	Route::get('/dashboard/kuis/tambah', 'Guru\KuisController@create')->name('tambahKuisGuru');
+	Route::post('/dashboard/kuis/tambah', 'Guru\KuisController@store')->name('storeKuisGuru');
 
 	Route::get('/dashboard/kuis/{id}/soal', 'Guru\SoalController@index')->name('indexSoalGuru');
 	Route::get('/dashboard/soal/tambah/{id}', 'Guru\SoalController@create')->name('tambahSoalGuru');
 	Route::post('/dashboard/soal/tambah', 'Guru\SoalController@store')->name('storeSoalGuru');
+	Route::get('/dashboard/soal/edit/{id}', 'Guru\SoalController@edit')->name('editSoalGuru');
+	Route::put('/dashboard/soal/edit/{id}', 'Guru\SoalController@update')->name('updateSoalGuru');
+	Route::get('/dashboard/soal/{id}', 'Guru\SoalController@destroy')->name('hapusSoalGuru');
 });
 
 Route::prefix('siswa')->middleware('siswa')->group(function () {
@@ -115,6 +129,8 @@ Route::prefix('siswa')->middleware('siswa')->group(function () {
 	Route::put('/dashboard/profil/{id}', 'Siswa\ProfilController@update')->name('updateProfilSiswa');
 
 	Route::get('/dashboard/mapel/{id}', 'Siswa\MapelController@index')->name('mapelSiswa');
+
+	Route::get('/dashboard/materi/{id}', 'Siswa\MateriController@index')->name('indexMateriSiswa');
 
 	Route::get('/dashboard/belajar/{id}', 'Siswa\BelajarController@index')->name('mulaiBelajar');
 
@@ -129,23 +145,30 @@ Route::prefix('siswa')->middleware('siswa')->group(function () {
 
 Route::prefix('kepsek')->middleware('kepsek')->group(function () {
 	Route::get('/dashboard', 'Kepsek\KepsekController@index')->name('homeKepsek');
+
+	Route::get('/dashboard/profil/{id}', 'Kepsek\ProfilController@index')->name('profilKepsek');
 });
 
-Route::get('firebase', 'FirebaseController@index');
+Route::get('/firebase', 'FirebaseController@index')->name('firebase');
+Route::post('/firebase', 'FirebaseController@store')->name('firebaseStore');
+// Route::resource('chat', 'ChatController');
 
 Route::get('/chat', function () {
-	return view('chat.chats');
+	// event(new FormSubmitted('tes'));
+	return view('chat.new.index');
 });
 
 Route::get('/sender', function () {
 	return view('chat.sender');
 });
 
-Route::post('/sender', function () {
-	$text = request()->text;
-	echo $text;
-	die;
-	event(new FormSubmitted($text));
+Route::post('/sender', function (Request $request) {
+	// $text = $request['pesan'];
+	$message = request()->message;
+
+	// event(new FormSubmitted($text));
+	event(new FormSubmitted($message));
+	return redirect()->view('chat.sender');
 });
 
 Route::get('logout', 'NativeAuth\LogoutController@index')->name('logout');

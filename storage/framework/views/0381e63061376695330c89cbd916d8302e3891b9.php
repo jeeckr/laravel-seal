@@ -65,11 +65,10 @@
       <span>Pengajar</span></a>
   </li>
 
-  <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo e(route('kelas')); ?>">
+    <a class="nav-link" href="<?php echo e(route('kelas_jurusan')); ?>">
       <i class="fas fa-fw fa-table"></i>
-      <span>Kelas</span></a>
+      <span>Kelas Jurusan</span></a>
   </li>
 
   <!-- Nav Item - Tables -->
@@ -77,13 +76,6 @@
     <a class="nav-link" href="<?php echo e(route('kuis')); ?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Kuis</span></a>
-  </li>
-
-  <!-- Nav Item - Tables -->
-  <li class="nav-item">
-    <a class="nav-link" href="tables.html">
-      <i class="fas fa-fw fa-table"></i>
-      <span>Tugas</span></a>
   </li>
 
   <!-- Divider -->

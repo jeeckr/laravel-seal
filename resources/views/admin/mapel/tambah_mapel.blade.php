@@ -33,7 +33,7 @@
                                 <div class="col-md-6">
                                     <label for="id_guru">Guru</label>
                                     <select class=" form-control" id="id_guru" name="id_guru">
-
+                                        <option value="">-- Pilih Guru --</option>
                                         @foreach ($guru as $data)
 
                                         <option value="{{ $data->id }}">{{ $data->nama_depan }} {{ $data->nama_belakang }} </option>
@@ -43,22 +43,20 @@
                                     </select>
                                 </div>
                             </div>
-
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="id_jurusan">Jurusan</label>
-                                    <select class="form-control" id="id_jurusan" name="id_jurusan">
+                                    <label for="id_kelas_jurusan">Kelas</label>
+                                    <select class=" form-control" id="id_kelas_jurusan" name="id_kelas_jurusan">
+                                        <option value="">-- Pilih Kelas --</option>
+                                        @foreach ($keljur as $data)
 
-                                        @foreach ($jurusan as $data)
-
-                                        <option value="{{ $data->id }}">{{ $data->kelas->nama_kelas }} {{ $data->nama_jurusan }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->kelas->nama_kelas }} {{ $data->jurusan->nama_jurusan }} </option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
                             </div>
-
                             <div class="form-group mt-3">
                                 <label for="nama_mapel">Mata Pelajaran</label>
                                 <input type="text" class="form-control" id="nama_mapel" name="nama_mapel">

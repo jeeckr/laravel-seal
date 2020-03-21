@@ -10,6 +10,7 @@ use App\Materi;
 use App\Guru;
 use App\Kuis;
 use App\Jurusan;
+use App\KelasJurusan;
 
 class MapelController extends Controller
 {
@@ -24,22 +25,22 @@ class MapelController extends Controller
     public function create()
     {
         $guru = Guru::all();
-        $jurusan = Jurusan::all();
-        return view('admin.mapel.tambah_mapel', compact('guru', 'jurusan'));
+        $keljur = KelasJurusan::all();
+        return view('admin.mapel.tambah_mapel', compact('guru', 'keljur'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'id_guru' => 'required',
-            'id_jurusan' => 'required',
+            'id_kelas_jurusan' => 'required',
             'nama_mapel' => 'required',
             'deskripsi' => 'required',
         ]);
 
         Mapel::create([
             'id_guru' => $request['id_guru'],
-            'id_jurusan' => $request['id_jurusan'],
+            'id_kelas_jurusan' => $request['id_kelas_jurusan'],
             'nama_mapel' => $request['nama_mapel'],
             'deskripsi' => $request['deskripsi'],
         ]);
@@ -57,15 +58,20 @@ class MapelController extends Controller
     public function edit($id)
     {
         $mapel = Mapel::find($id);
-        $guru = Guru::get();
-        return view('admin.mapel.edit_mapel', compact('mapel', 'guru'));
+        $gurmap = Guru::where('id', $mapel->id_guru)->first();
+        $guru = Guru::all();
+        $kelmap = KelasJurusan::where('id', $mapel->id_kelas_jurusan)->first();
+        $keljur = KelasJurusan::all();
+        return view('admin.mapel.edit_mapel', compact('mapel', 'gurmap', 'guru', 'kelmap', 'keljur'));
     }
 
     public function update(Request $request, $id)
     {
         $mapel = $request->validate([
             'id_guru' => 'required',
+            'id_kelas_jurusan' => 'required',
             'nama_mapel' => 'required',
+            'deskripsi' => 'required',
         ]);
 
         Mapel::where('id', $id)->update($mapel);

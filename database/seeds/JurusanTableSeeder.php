@@ -14,17 +14,17 @@ class JurusanTableSeeder extends Seeder
     {
         DB::table('jurusan')->insert([
             'id_kelas' => 1,
-            'nama_jurusan' => 'RPL',
+            'nama_jurusan' => 'Rekayasa Perangkat Lunak',
         ]);
 
         DB::table('jurusan')->insert([
             'id_kelas' => 1,
-            'nama_jurusan' => 'Tkj',
+            'nama_jurusan' => 'Teknik Komputer dan Jaringan',
         ]);
 
         DB::table('jurusan')->insert([
             'id_kelas' => 1,
-            'nama_jurusan' => 'MM',
+            'nama_jurusan' => 'Multimedia',
         ]);
     }
 }

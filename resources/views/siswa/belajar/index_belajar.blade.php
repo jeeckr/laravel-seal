@@ -39,9 +39,11 @@
                                 <p>{{ $data->isi_materi }}</p>
                             </div>
                             @endforeach
+
                         </div>
                     </div>
                 </div>
+
                 <div class="row justify-content-center">
                     {{ $materi->links() }}
                 </div>

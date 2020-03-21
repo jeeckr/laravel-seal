@@ -21,12 +21,23 @@
     <link rel="stylesheet" href="{{ asset('/stisla/css/components.css') }}">
 
     <style>
+        /* .bg-set {
+            background: #0e82d6 !important;
+            background-color: #0e82d6 !important;
+        }
+
+        .bg-primary {
+            color: white;
+        } */
+
         .navbar {
             left: 5px !important;
         }
 
         .navbar-bg {
             height: 70px !important;
+            /* background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 44, 121, 1) 0%, rgba(16, 169, 255, 1) 97%) !important; */
         }
 
         .main-content {
@@ -36,6 +47,10 @@
         .image-navbar {
             height: 30px !important;
             object-fit: cover !important;
+        }
+
+        .bg-primary {
+            color: white;
         }
     </style>
 

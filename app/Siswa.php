@@ -12,7 +12,7 @@ class Siswa extends Authenticatable
     protected $table = 'siswas';
 
     protected $fillable = [
-        'id_kelas', 'nisn', 'nama_depan', 'nama_belakang', 'alamat', 'telepon', 'tempat_lahir', 'tanggal_lahir', 'jk', 'image', 'email', 'password'
+        'id_kelas_jurusan', 'nisn', 'nama_depan', 'nama_belakang', 'alamat', 'telepon', 'tempat_lahir', 'tanggal_lahir', 'jk', 'image', 'email', 'password'
     ];
 
     /**
@@ -38,6 +38,11 @@ class Siswa extends Authenticatable
         return $this->belongsTo(Kelas::class, 'id_kelas');
     }
 
+    public function jurusan()
+    {
+        return $this->belongsToMany(Jurusan::class, 'id_jurusan');
+    }
+
     public function jawaban()
     {
         return $this->hasMany(JawabanSiswa::class);
@@ -48,6 +53,15 @@ class Siswa extends Authenticatable
         return $this->hasMany(Nilai::class);
     }
 
+    public function kelasJurusan()
+    {
+        return $this->belongsTo(KelasJurusan::class, 'id_kelas_jurusan');
+    }
+
+    public function status()
+    {
+        return $this->hasMany(Status::class);
+    }
     public function showImage()
     {
         if (Storage::has($this->image)) {

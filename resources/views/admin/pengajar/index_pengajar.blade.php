@@ -23,9 +23,10 @@
                     <tr>
                         <td>{{ $no }}</td>
                         <td>{{ $data->nama_mapel }}</td>
-                        <td>{{ $data->guru['nama_depan'] }} {{ $data->guru['nama_belakang'] }}</td>
+                        <td>{{ $data->guru->nama_depan }} {{ $data->guru->nama_belakang }}</td>
                     </tr>
                     @endforeach
+
                 </tbody>
 
             </table>

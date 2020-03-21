@@ -13,7 +13,7 @@ class PengajarController extends Controller
     public function index()
     {
 
-        $mapel = Mapel::all();
+        $mapel = Mapel::get();
         return view('admin.pengajar.index_pengajar', ['mapel' => $mapel]);
     }
 }

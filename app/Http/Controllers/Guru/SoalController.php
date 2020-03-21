@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
+use App\KelasJurusan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mapel;
 use App\Kuis;
+use App\Siswa;
 use App\Soal;
+use App\Status;
 
 class SoalController extends Controller
 {
@@ -21,9 +24,12 @@ class SoalController extends Controller
         $title = 'Halaman Soal';
         $guru = Auth::guard('guru')->user();
         $mapel = Mapel::where('id_guru', $guru->id)->first();
-        $kuis = Kuis::where('id_mapel', $mapel->id)->first();
+        $kuis = Kuis::where('id', $id)->get();
         $soal = Soal::where('id_kuis', $id)->get();
-        return view('guru.soal.index_soal', compact('title', 'guru', 'mapel', 'kuis', 'soal'));
+        $keljur = KelasJurusan::where('id', $mapel->id_kelas_jurusan)->first();
+        $siswa = Siswa::where('id_kelas_jurusan', $keljur->id)->get();
+
+        return view('guru.soal.index_soal', compact('title', 'guru', 'mapel', 'kuis', 'soal', 'keljur', 'siswa'));
     }
 
     /**
@@ -88,7 +94,10 @@ class SoalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title = 'Edit Materi';
+        $guru = Auth::guard('guru')->user();
+        $soal = Soal::find($id);
+        return view('guru.soal.edit_soal', compact('title', 'guru', 'soal'));
     }
 
     /**
@@ -100,7 +109,17 @@ class SoalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $soal = $request->validate([
+            'soal' => 'required',
+            'pilihan_a' => 'required',
+            'pilihan_b' => 'required',
+            'pilihan_c' => 'required',
+            'pilihan_d' => 'required',
+            'kunci' => 'required',
+        ]);
+
+        Soal::where('id', $id)->update($soal);
+        return redirect()->route('homeGuru');
     }
 
     /**
@@ -111,6 +130,7 @@ class SoalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Soal::destroy($id);
+        return redirect()->route('indexSoalGuru');
     }
 }

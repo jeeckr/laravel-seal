@@ -11,7 +11,7 @@
 
     .main {
         background-color: unset !important;
-        background: #007bff !important;
+        background-image: linear-gradient(-41deg, #00c8ff, #092c79);
         height: 100vh;
     }
 
@@ -26,6 +26,34 @@
 
     .signup-image-link {
         margin-top: 2rem;
+    }
+
+    .signin-form {
+        margin-top: 1rem;
+    }
+
+    .form-title {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .form-submit {
+        padding-top: 11px !important;
+    }
+
+    .btn-login {
+        border-radius: 100px !important;
+        width: 9rem !important;
+        height: 2.5rem;
+        background-image: linear-gradient(-30deg, #00c8ff, #057abc);
+    }
+
+    .btn-kembali {
+        border-radius: 100px !important;
+        width: 9rem !important;
+        float: right;
+        height: 2.5rem;
+        background-image: linear-gradient(-30deg, #00c8ff, #057abc);
     }
 </style>
 
@@ -73,13 +101,13 @@
                         <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                     </div>
                     <div class="form-group form-button">
-                        <input type="submit" name="signin" id="signin" class="form-submit" value="Masuk" />
+                        <input type="submit" name="signin" id="signin" class="form-submit btn-login" value="Masuk" />
                         <a href="{{ route('home') }}">
-                            <input type="button" name="signin" id="signin" class="form-submit" value="Kembali" />
+                            <input type="button" name="signin" id="signin" class="form-submit btn-kembali" value="Kembali" />
                         </a>
                     </div>
                 </form>
-                <a href="{{ route('formRegisterGuru') }}" class="signup-image-link">Create an account</a>
+                <!-- <a href="{{ route('formRegisterGuru') }}" class="signup-image-link">Create an account</a> -->
             </div>
         </div>
     </div>

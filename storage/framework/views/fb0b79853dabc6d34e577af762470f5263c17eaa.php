@@ -24,6 +24,11 @@
         margin-left: 1rem !important;
     }
 
+    /* Table */
+    .table-mapel th {
+        color: white !important;
+    }
+
     /* Calendar */
     #myEvent {
         font-size: 0.5rem !important;
@@ -35,6 +40,14 @@
 
     #myEvent .fc-right {
         display: none !important;
+    }
+
+    .card-calendar {
+        word-wrap: unset !important;
+    }
+
+    .bg-primary {
+        color: white;
     }
 </style>
 
@@ -49,35 +62,7 @@
             <div class="row">
                 <div class="col-md-3">
 
-                    <div class="card card-profil">
-                        <div class="card-body">
-                            <div class="row">
-
-                                <div class="col-md-4">
-                                    <img class="mr-3 rounded-circle photo-profil" src="<?php echo e($siswa->showImage()); ?>" alt="avatar">
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="media-body">
-                                        <h6 class="media-title"><?php echo e($siswa->nama_depan); ?> <?php echo e($siswa->nama_belakang); ?></h6>
-                                        <div class="text-small text-muted"><?php echo e($siswa->nisn); ?>
-
-                                            <div class="bullet"></div> <span class="text-primary">Siswa</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <hr>
-
-                            <div class="row justify-content-center">
-                                <a href="<?php echo e(route('profilSiswa', $siswa->id)); ?>">
-                                    <div class="badge badge-pill badge-primary">View Profil</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php echo $__env->make('template.dashboardTemplate.siswa.sidebar_profil_siswa', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                     <div class="card">
                         <div class="card-body">
@@ -91,9 +76,6 @@
                                 <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                                     <li class="nav-item nav-home">
                                         <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">Home</a>
-                                    </li>
-                                    <li class="nav-item nav-home">
-                                        <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
                                     </li>
                                     <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kelas</a>
@@ -117,21 +99,39 @@
 
                         <div class="card-body">
 
-                            <?php if($message = Session::get('success')): ?>
+                            <!-- Session -->
+                            <!-- <?php if($message = Session::get('success')): ?>
 
                             <div class="alert alert-success">
                                 <p><?php echo e($message); ?></p>
                             </div>
 
-                            <?php endif; ?>
+                            <?php endif; ?> -->
+                            <!-- End Session -->
 
                             <div class="col-12 col-sm-12 col-md-12">
                                 <div class="tab-content no-padding" id="myTab2Content">
                                     <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
 
-                                    </div>
+                                        <div class="card chat-form mb-3">
+                                            <form id="chat-form2">
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control" placeholder="Type a message">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <button class="btn btn-primary">
+                                                            <i class="far fa-paper-plane"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
 
-                                    <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
+                                        <div class="card chat-box" id="mychatbox2">
+                                            <div class="card-body chat-content">
+                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -140,27 +140,34 @@
                                         <div class="card-header">
                                             <h4>Kelas</h4>
                                         </div>
-                                        <div class="table-responsive text-center">
-                                            <table class="table table-striped table-md table-mapel">
-                                                <thead class="">
+                                        <div class="card-body">
+
+                                            <!-- Table -->
+                                            <div class="table-responsive text-center">
+                                                <table class="table table-striped table-md table-mapel">
+                                                    <thead class="bg-primary">
+                                                        <tr>
+                                                            <th>Mata pelajaran</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <?php $__currentLoopData = $mapel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
-                                                        <th>Mata pelajaran</th>
-                                                        <th>Action</th>
+
+                                                        <td><?php echo e($data->nama_mapel); ?></td>
+                                                        <td>
+                                                            <a href="<?php echo e(route('mapelSiswa', $data->id)); ?>"> <span class="badge badge-info bg-btn bg-primary">Lihat Materi</span></a>
+                                                        </td>
                                                     </tr>
-                                                </thead>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                                                <?php $__currentLoopData = $mapel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <tr>
+                                                </table>
+                                            </div>
+                                            <!-- End Table -->
 
-                                                    <td><?php echo e($data->nama_mapel); ?></td>
-                                                    <td>
-                                                        <a href="<?php echo e(route('mapelSiswa', $data->id)); ?>"> <span class="badge badge-info">Lihat Materi</span></a>
-                                                    </td>
-                                                </tr>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                                            </table>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -172,13 +179,17 @@
                 <div class="col-md-3">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
+
+                            <!-- Calendar -->
+                            <div class="card card-calendar">
                                 <div class="card-body">
                                     <div class="fc-overflow">
                                         <div id="myEvent"></div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- End Calendar -->
+
                         </div>
                     </div>
                 </div>
@@ -187,7 +198,6 @@
         </div>
     </section>
 </div>
-
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('template.dashboardTemplate.siswa.App', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/jeeckr/Documents/Laravel/Elearning/resources/views/siswa/IndexSiswa.blade.php ENDPATH**/ ?>

@@ -15,7 +15,6 @@ class AddDeskripsiToMapel extends Migration
     {
         Schema::table('mapel', function (Blueprint $table) {
             $table->text('deskripsi')->after('nama_mapel');
-            $table->integer('id_jurusan')->unsigned()->reference('id')->on('jurusan')->onDelete('cascade')->after('id_guru');
         });
     }
 

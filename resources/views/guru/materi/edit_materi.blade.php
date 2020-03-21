@@ -43,21 +43,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="card card-profil">
-                        <div class="card-body">
-                            <div class="row">
 
-                                <div class="card-header">
-                                    <h4>Informasi</h4>
-                                </div>
-                                <div class="card-bory">
-                                    <p>{{ $mapel->nama_mapel }}</p>
-                                    Jumlah Materi :
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="col-md-6">
@@ -72,10 +58,12 @@
                                 <h4>Edit Materi</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('updateMateriGuru', $materi->id) }}">
+                                <form action="{{ route('updateMateriGuru', $materi->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
-
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="id_mapel" value="{{ $materi->id_mapel }}">
+                                    </div>
                                     <div class="form-group">
                                         <label>Bab</label>
                                         <input type="text" class="form-control" name="bab" value="{{ $materi->bab }}">

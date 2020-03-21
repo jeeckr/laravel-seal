@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Jurusan;
+use App\Kelas;
 use Illuminate\Http\Request;
 
 class JurusanController extends Controller
@@ -14,6 +16,8 @@ class JurusanController extends Controller
      */
     public function index()
     {
+        $kelas = Kelas::find(2);
+        return view('admin.jurusan.index_jurusan', compact('kelas'));
     }
 
     /**

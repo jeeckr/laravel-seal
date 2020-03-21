@@ -48,6 +48,10 @@
     .table-materi thead th {
         color: white !important;
     }
+
+    .btn-kembali {
+        float: right;
+    }
 </style>
 
 @endsection
@@ -77,7 +81,7 @@
                                         <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">Home</a>
                                     </li>
                                     <li class="nav-item nav-home">
-                                        <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-selected="false">Mata Pelajaran</a>
+                                        <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-selected="false">Detail Siswa</a>
                                     </li>
 
                                 </ul>
@@ -102,24 +106,15 @@
 
                         <div class="card-body">
 
-                            @if ($message = Session::get('success'))
-
-                            <div class="alert alert-success">
-                                <p>{{ $message }}</p>
-                            </div>
-
-                            @endif
-
                             <div class="col-12 col-sm-12 col-md-12">
                                 <div class="tab-content no-padding" id="myTab2Content">
-
                                     <!-- Home -->
                                     <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
                                         <div class="card-header">
-                                            <h4>Kuis</h4>
+                                            <h4>Soal {{ $kuis[0]->judul }}</h4>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('tambahSoalGuru', $kuis->id) }}" class="btn btn-primary mb-2 btn-tambah" id="tambah-soal" name="tambah-soal">Tambah Soal</a>
+                                            <a href="{{ route('tambahSoalGuru', $kuis[0]->id) }}" class="btn btn-primary mb-3 btn-tambah" name="tambah-soal">Tambah Soal</a>
 
                                             <div class="table-responsive text-center">
                                                 <table class="table table-striped table-md table-materi">
@@ -148,12 +143,12 @@
                                                         <td>{{ $data->pilihan_d }}</td>
                                                         <td>{{ $data->kunci }}</td>
                                                         <td>
-                                                            <a href="{{ route('editMateriGuru', $data->id) }}">
+                                                            <a href="{{ route('editSoalGuru', $data->id) }}">
                                                                 <div class="badge badge-warning">
                                                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                                                 </div>
                                                             </a>
-                                                            <a href="{{ route('hapusMateriGuru', $data->id) }}">
+                                                            <a href="{{ route('hapusSoalGuru', $data->id) }}">
                                                                 <div class="badge badge-danger">
                                                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                                                 </div>
@@ -164,12 +159,50 @@
 
                                                 </table>
                                             </div>
+
+                                            <a href="{{ route('homeGuru') }}" class="btn btn-warning btn-kembali mt-3 mr-3">Kembali</a>
                                         </div>
                                     </div>
 
-                                    <!-- Mata Pelajaran -->
+                                    <!-- Detail Siswa -->
                                     <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
 
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Status Siswa</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped text-center" id="table-1">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    No
+                                                                </th>
+                                                                <th>NISN</th>
+                                                                <th>Nama</th>
+                                                                <th>Status</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                            <?php $no = 0 ?>
+                                                            @foreach($siswa as $data)
+                                                            <?php $no++ ?>
+                                                            <tr>
+                                                                <td>{{ $no }}</td>
+                                                                <td>{{ $data->nisn }}</td>
+                                                                <td>{{ $data->nama_depan }}
+                                                                    {{ $data->nama_belakang }}
+                                                                </td>
+                                                            </tr>
+                                                            @endforeach
+                                                        </tbody>
+
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     </div>
 

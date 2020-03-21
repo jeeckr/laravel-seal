@@ -1,0 +1,20 @@
+{
+    "users": [
+        {
+            "nama": "Alex Meraz",
+            "pesan": "Hai"
+        },
+        {
+            "nama": "Mohammed Rafi",
+            "pesan": "Halo Juga"
+        },
+        {
+            "nama": "Raja Tamil",
+            "pesan": "Halo"
+        },
+        {
+            "nama": "Sundar Pichai",
+            "pesan": "Hai Juga"
+        }
+    ]
+}

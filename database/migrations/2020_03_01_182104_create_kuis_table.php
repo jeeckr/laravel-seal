@@ -15,10 +15,12 @@ class CreateKuisTable extends Migration
     {
         Schema::create('kuis', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_mapel');
+            $table->integer('id_mapel')->unsigned()->reference('id')->on('mapel')->onDelete('cascade');
             $table->string('judul');
             $table->integer('jumlah_soal');
             $table->bigInteger('waktu');
+            $table->enum('status_kuis', [0, 1])->default(1);
+            $table->enum('status_siswa', [0, 1])->default(0);
             $table->timestamps();
         });
     }

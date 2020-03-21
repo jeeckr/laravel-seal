@@ -34,6 +34,7 @@
             text-align: center;
             padding-right: 20px !important;
             padding-left: 20px !important;
+            background: #0491d0 !important;
         }
 
         h4 {
@@ -49,7 +50,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
         <div class="container">
-            <a href="<?php echo e(route('home')); ?>" class="navbar-brand">E-Learning</a>
+            <a href="<?php echo e(route('home')); ?>" class="navbar-brand">SeaL</a>
         </div>
     </nav>
     <div class="container-fluid gtco-banner-area">

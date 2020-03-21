@@ -1,13 +1,12 @@
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
-    <a href="<?php echo e(route('homeSiswa')); ?>" class="navbar-brand sidebar-gone-hide">E-Learning</a>
+    <a href="<?php echo e(route('homeSiswa')); ?>" class="navbar-brand sidebar-gone-hide">SEAL</a>
 
-    <div class="nav-collapse">
-        <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
-            <i class="fas fa-ellipsis-v"></i>
-        </a>
+    <div class="nav-collapse mx-auto">
         <ul class="navbar-nav">
             <li class="nav-item"><a href="<?php echo e(route('homeSiswa')); ?>" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="<?php echo e(route('profilSiswa', $siswa->id)); ?>" class="nav-link">Profil</a></li>
+            <li class="nav-item"><a href="<?php echo e(route('mapelSiswa', $siswa->id)); ?>" class="nav-link">Mata Pelajaran</a></li>
         </ul>
     </div>
 

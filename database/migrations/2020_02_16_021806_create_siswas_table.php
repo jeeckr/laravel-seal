@@ -15,7 +15,7 @@ class CreateSiswasTable extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_kelas')->unsigned()->default(1);
+            $table->integer('id_kelas_jurusan')->unsigned()->reference('id')->on('kelas_jurusan')->onDelete('cascade');
             $table->string('nisn')->unique();
             $table->string('nama_depan');
             $table->string('nama_belakang');

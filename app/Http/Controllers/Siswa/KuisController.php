@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Soal;
 use App\JawabanSiswa;
+use App\Kuis;
 use App\Nilai;
+use App\Status;
 
 class KuisController extends Controller
 {
@@ -50,6 +52,13 @@ class KuisController extends Controller
                 'id_siswa' => $siswa->id,
                 'nilai' => session('nilai')
             ]);
+
+            $kuis = Kuis::find($soal->id_kuis);
+
+            $request->validate([
+                'status_siswa' => 'required'
+            ]);
+            $kuis->update($request->except('id_mapel'));
 
             session()->forget('nilai');
 

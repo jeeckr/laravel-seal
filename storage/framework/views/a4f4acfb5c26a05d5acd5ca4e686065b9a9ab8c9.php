@@ -9,6 +9,15 @@
 	<form action="<?php echo e(route('siswaStore')); ?>" method="POST" enctype="multipart/form-data">
 		<?php echo csrf_field(); ?>
 		<div class="form-group">
+			<label for="id_kelas_jurusan">Kelas</label>
+			<select class="form-control" id="id_kelas_jurusan" name="id_kelas_jurusan">
+				<?php $__currentLoopData = $keljur; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+				<option value="<?php echo e($data->id); ?>"><?php echo e($data->kelas->nama_kelas); ?> <?php echo e($data->jurusan->nama_jurusan); ?></option>
+
+				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			</select>
+		</div>
+		<div class="form-group">
 			<label for="nisn">NISN</label>
 			<input type="text" class="form-control" id="nisn" name="nisn">
 

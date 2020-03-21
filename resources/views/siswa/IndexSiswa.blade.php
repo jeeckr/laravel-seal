@@ -26,6 +26,11 @@
         margin-left: 1rem !important;
     }
 
+    /* Table */
+    .table-mapel th {
+        color: white !important;
+    }
+
     /* Calendar */
     #myEvent {
         font-size: 0.5rem !important;
@@ -37,6 +42,14 @@
 
     #myEvent .fc-right {
         display: none !important;
+    }
+
+    .card-calendar {
+        word-wrap: unset !important;
+    }
+
+    .bg-primary {
+        color: white;
     }
 </style>
 
@@ -51,34 +64,7 @@
             <div class="row">
                 <div class="col-md-3">
 
-                    <div class="card card-profil">
-                        <div class="card-body">
-                            <div class="row">
-
-                                <div class="col-md-4">
-                                    <img class="mr-3 rounded-circle photo-profil" src="{{ $siswa->showImage() }}" alt="avatar">
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="media-body">
-                                        <h6 class="media-title">{{ $siswa->nama_depan }} {{ $siswa->nama_belakang }}</h6>
-                                        <div class="text-small text-muted">{{ $siswa->nisn }}
-                                            <div class="bullet"></div> <span class="text-primary">Siswa</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <hr>
-
-                            <div class="row justify-content-center">
-                                <a href="{{ route('profilSiswa', $siswa->id) }}">
-                                    <div class="badge badge-pill badge-primary">View Profil</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @include('template.dashboardTemplate.siswa.sidebar_profil_siswa')
 
                     <div class="card">
                         <div class="card-body">
@@ -92,9 +78,6 @@
                                 <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                                     <li class="nav-item nav-home">
                                         <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">Home</a>
-                                    </li>
-                                    <li class="nav-item nav-home">
-                                        <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
                                     </li>
                                     <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kelas</a>
@@ -118,21 +101,39 @@
 
                         <div class="card-body">
 
-                            @if ($message = Session::get('success'))
+                            <!-- Session -->
+                            <!-- @if ($message = Session::get('success'))
 
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>
                             </div>
 
-                            @endif
+                            @endif -->
+                            <!-- End Session -->
 
                             <div class="col-12 col-sm-12 col-md-12">
                                 <div class="tab-content no-padding" id="myTab2Content">
                                     <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
 
-                                    </div>
+                                        <div class="card chat-form mb-3">
+                                            <form id="chat-form2">
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control" placeholder="Type a message">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <button class="btn btn-primary">
+                                                            <i class="far fa-paper-plane"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
 
-                                    <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
+                                        <div class="card chat-box" id="mychatbox2">
+                                            <div class="card-body chat-content">
+                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -141,27 +142,34 @@
                                         <div class="card-header">
                                             <h4>Kelas</h4>
                                         </div>
-                                        <div class="table-responsive text-center">
-                                            <table class="table table-striped table-md table-mapel">
-                                                <thead class="">
+                                        <div class="card-body">
+
+                                            <!-- Table -->
+                                            <div class="table-responsive text-center">
+                                                <table class="table table-striped table-md table-mapel">
+                                                    <thead class="bg-primary">
+                                                        <tr>
+                                                            <th>Mata pelajaran</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    @foreach($mapel as $data)
                                                     <tr>
-                                                        <th>Mata pelajaran</th>
-                                                        <th>Action</th>
+
+                                                        <td>{{ $data->nama_mapel}}</td>
+                                                        <td>
+                                                            <a href="{{ route('mapelSiswa', $data->id) }}"> <span class="badge badge-info bg-btn bg-primary">Lihat Materi</span></a>
+                                                        </td>
                                                     </tr>
-                                                </thead>
+                                                    @endforeach
 
-                                                @foreach($mapel as $data)
-                                                <tr>
+                                                </table>
+                                            </div>
+                                            <!-- End Table -->
 
-                                                    <td>{{ $data->nama_mapel}}</td>
-                                                    <td>
-                                                        <a href="{{ route('mapelSiswa', $data->id) }}"> <span class="badge badge-info">Lihat Materi</span></a>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-
-                                            </table>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -173,13 +181,17 @@
                 <div class="col-md-3">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
+
+                            <!-- Calendar -->
+                            <div class="card card-calendar">
                                 <div class="card-body">
                                     <div class="fc-overflow">
                                         <div id="myEvent"></div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- End Calendar -->
+
                         </div>
                     </div>
                 </div>
@@ -188,6 +200,5 @@
         </div>
     </section>
 </div>
-
 
 @endsection

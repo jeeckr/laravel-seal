@@ -11,6 +11,15 @@
         height: 70vh !important;
         width: 70%;
     }
+
+    .header-soal {
+        padding-top: 22px !important;
+
+    }
+
+    .form-soal {
+        padding-left: 20px;
+    }
 </style>
 
 @endsection
@@ -25,15 +34,18 @@
                 <div class="row">
                     <div class="card card-belajar mx-auto">
                         <div class="card-body">
+                            <div class="card-header bg-primary header-soal">
+                                <h5>Soal no </h5>
+                            </div>
 
-                            <form action="{{ route('kuisSiswaStore', $soal[0]->id) }}" method="POST">
+                            <form action="{{ route('kuisSiswaStore', $soal[0]->id) }}" method="POST" class="form-soal">
                                 @csrf
-                                <h5>
+                                <h5 class="mt-4">
                                     {{ $soal[0]->soal }}
                                 </h5>
 
                                 <div class="form-group">
-                                    <label class="d-block">Jawaban</label>
+                                    <label class="d-block"></label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="pilihan" id="pilihan" value="A">
                                         <label class="form-check-label" for="pilihan">
@@ -62,17 +74,15 @@
                                 </div>
                                 <input type="hidden" name="next" value="{{ $soal->nextPageUrl() }}">
 
+                                <input type="hidden" name="status_siswa" value="1">
+
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary" name="submit">Selesai</button>
+                                    <button type="submit" class="btn btn-primary" name="submit">Lanjut</button>
                                 </div>
                             </form>
 
                         </div>
                     </div>
-                </div>
-
-                <div class="row justify-content-center">
-
                 </div>
 
             </div>

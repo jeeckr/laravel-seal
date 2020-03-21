@@ -37,7 +37,7 @@ class Guru extends Authenticatable
 
     public function mapel()
     {
-        return $this->hasOne(Mapel::class);
+        return $this->hasOne(Mapel::class, 'id_guru', 'id');
     }
 
     public function showImage()

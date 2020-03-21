@@ -24,6 +24,8 @@
 <script src="{{ asset('/stisla/js/stisla.js') }}"></script>
 
 <!-- Page Specific JS File -->
+<script src="{{ asset('/stisla/js/page/components-chat-box.js') }}"></script>
+
 </body>
 
 </html>

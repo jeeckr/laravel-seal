@@ -9,7 +9,7 @@ class Kuis extends Model
     protected $table = 'kuis';
 
     protected $fillable = [
-        'id_mapel', 'judul', 'jumlah_soal', 'waktu',
+        'id_mapel', 'judul', 'jumlah_soal', 'waktu', 'status_kuis', 'status_siswa',
     ];
 
     public function soal()
@@ -26,4 +26,9 @@ class Kuis extends Model
     {
         return $this->hasMany(Nilai::class);
     }
+
+    // public function status()
+    // {
+    //     return $this->hasMany(Status::class);
+    // }
 }

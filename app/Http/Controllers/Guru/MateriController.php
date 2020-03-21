@@ -80,6 +80,7 @@ class MateriController extends Controller
     public function update(Request $request, $id)
     {
         $materi = $request->validate([
+            'id_mapel' => 'required',
             'bab' => 'required',
             'judul' => 'required',
             'isi_materi' => 'required',

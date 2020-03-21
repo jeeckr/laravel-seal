@@ -19,13 +19,13 @@
 
                 <tbody>
                     <?php $no = 0; ?>
-                    @foreach($jurusan as $data)
+                    @foreach($kelas as $data)
                     <?php $no++; ?>
                     <tr>
                         <td>{{ $no }}</td>
-                        <td>{{ $data->kelas->nama_kelas}}</td>
-                        <td>{{ $data->nama_jurusan}}</td>
-                        <td>
+                        <td>{{ $data->nama_kelas}}</td>
+
+                        <!-- <td>
                             <a href="{{ route('detailMapel', $data->id) }}">
                                 <button class="btn btn-primary">Mapel</button>
                             </a>
@@ -35,7 +35,7 @@
                             <a href="{{ route('detailSiswa', $data->id) }}">
                                 <button class="btn btn-danger">Hapus</button>
                             </a>
-                        </td>
+                        </td> -->
 
                     </tr>
 

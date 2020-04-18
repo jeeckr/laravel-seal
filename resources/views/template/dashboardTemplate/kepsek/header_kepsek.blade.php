@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="{{ asset('/stisla/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/stisla/modules/fontawesome/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('/stisla/css/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.bootstrap4.min.css') }}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('/stisla/css/style.css') }}">

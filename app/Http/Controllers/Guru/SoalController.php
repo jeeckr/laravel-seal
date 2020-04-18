@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mapel;
 use App\Kuis;
+use App\KuisSiswa;
 use App\Siswa;
 use App\Soal;
 use App\Status;
@@ -28,8 +29,9 @@ class SoalController extends Controller
         $soal = Soal::where('id_kuis', $id)->get();
         $keljur = KelasJurusan::where('id', $mapel->id_kelas_jurusan)->first();
         $siswa = Siswa::where('id_kelas_jurusan', $keljur->id)->get();
+        $status = KuisSiswa::where('id_kuis', $id)->get();
 
-        return view('guru.soal.index_soal', compact('title', 'guru', 'mapel', 'kuis', 'soal', 'keljur', 'siswa'));
+        return view('guru.soal.index_soal', compact('title', 'guru', 'mapel', 'kuis', 'soal', 'keljur', 'siswa', 'status'));
     }
 
     /**

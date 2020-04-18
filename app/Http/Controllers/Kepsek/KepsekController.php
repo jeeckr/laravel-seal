@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Kepsek;
 
+use App\Guru;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,7 @@ class KepsekController extends Controller
     {
         $title = 'Dashboard Kepala Sekolah';
         $kepsek = Auth::guard('kepsek')->user();
-        return view('kepsek.index_kepsek', compact('title', 'kepsek'));
+        $guru = Guru::all();
+        return view('kepsek.index_kepsek', compact('title', 'kepsek', 'guru'));
     }
 }

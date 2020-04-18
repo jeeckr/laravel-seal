@@ -77,9 +77,9 @@
                                     <li class="nav-item nav-home">
                                         <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">Home</a>
                                     </li>
-                                    <li class="nav-item nav-home">
+                                    <!-- <li class="nav-item nav-home">
                                         <a class="nav-link" id="siswa-tab4" data-toggle="tab" href="#siswa4" role="tab" aria-controls="siswa" aria-selected="false">Siswa</a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kuis</a>
                                     </li>
@@ -159,9 +159,9 @@
 
                                     <!-- Siswa -->
 
-                                    <div class="tab-pane fade " id="siswa4" role="tabpanel" aria-labelledby="siswa-tab4">
+                                    <!-- <div class="tab-pane fade " id="siswa4" role="tabpanel" aria-labelledby="siswa-tab4"> -->
 
-                                        <!-- <div class="card">
+                                    <!-- <div class="card">
                                             <div class="card-header">
                                                 <h4>Data Siswa</h4>
                                             </div>
@@ -215,7 +215,7 @@
                                                 </div>
                                             </div>
                                         </div> -->
-                                    </div>
+                                    <!-- </div> -->
 
                                     <!-- End Siswa -->
 

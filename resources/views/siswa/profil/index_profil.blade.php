@@ -29,9 +29,7 @@
                         <li class="nav-item">
                             <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile" aria-selected="false">Nilai</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="contact-tab2" data-toggle="tab" href="#contact2" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-                        </li>
+
                     </ul>
                     <div class="tab-content tab-bordered" id="myTab3Content">
                         <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab2">

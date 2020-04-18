@@ -21,4 +21,14 @@ class Nilai extends Model
     {
         return $this->belongsTo(Kuis::class, 'id_kuis');
     }
+
+    // public function jawaban()
+    // {
+    //     return $this->hasOne(JawabanSiswa::class);
+    // }
+
+    public function soal()
+    {
+        return $this->hasOne(Soal::class);
+    }
 }

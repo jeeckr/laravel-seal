@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Siswa;
 
 use App\Http\Controllers\Controller;
+use App\JawabanSiswa;
 use App\Kuis;
+use App\KuisSiswa;
 use App\Nilai;
 use App\Soal;
 use Illuminate\Http\Request;
@@ -16,12 +18,16 @@ class NilaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $title = 'Nilai';
         $siswa = Auth::guard('siswa')->user();
-        // $nilai = Nilai::where(['id_siswa' => $siswa->id])->where('id_kuis',)->get();
-        return view('siswa.mapel.nilai.index_nilai', compact('title', 'siswa'));
+        $nilai = Nilai::where(['id_siswa' => $siswa->id])->where('id_kuis', $request['kuis'])->sum('nilai');
+        $nilai2 = Nilai::where(['id_siswa' => $siswa->id])->where('id_kuis', $request['kuis'])->get();
+        $soal = Soal::where('id_kuis', $request['kuis'])->get();
+        $hasil = $nilai * 10;
+        $jawaban = JawabanSiswa::where('id_siswa', $siswa->id)->get();
+        return view('siswa.mapel.nilai.index_nilai', compact('title', 'siswa', 'nilai', 'jawaban', 'soal', 'hasil', 'nilai2'));
     }
 
     /**

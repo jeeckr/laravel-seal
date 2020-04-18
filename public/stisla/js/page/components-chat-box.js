@@ -4,22 +4,6 @@ var chats = [
   {
     text: 'Hi, dude!',
     position: 'left'
-  },
-  {
-    text: 'Wat?',
-    position: 'right'
-  },
-  {
-    text: 'You wanna know?',
-    position: 'left'
-  },
-  {
-    text: 'Wat?!',
-    position: 'right'
-  },
-  {
-    typing: true,
-    position: 'left'
   }
 ];
 for (var i = 0; i < chats.length; i++) {

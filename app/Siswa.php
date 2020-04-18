@@ -62,6 +62,12 @@ class Siswa extends Authenticatable
     {
         return $this->hasMany(Status::class);
     }
+
+    public function kuisSiswa()
+    {
+        return $this->hasMany(KuisSiswa::class);
+    }
+
     public function showImage()
     {
         if (Storage::has($this->image)) {

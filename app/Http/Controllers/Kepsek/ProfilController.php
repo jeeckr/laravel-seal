@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Kepsek;
 
 use App\Http\Controllers\Controller;
+use App\Kepsek;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfilController extends Controller
 {
@@ -72,7 +74,34 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Kepsek::find($id);
+
+        // if ($data->nip != $request['nip']) {
+        //     $request->validate([
+        //         'nip' => 'required|unique:kepsek',
+        //     ]);
+        // }
+
+        if ($request->filled('password')) {
+            $request->validate([
+                'nama_depan' => 'required', 'string', 'max:255',
+                'nama_belakang' => 'required', 'string', 'max:255',
+                'alamat' => 'required', 'string', 'max:255',
+                'password' => 'string', 'min:8',
+            ]);
+
+            $data->update($request->except('password') + ['password' => Hash::make($request['password'])]);
+        } else {
+            $request->validate([
+                'nama_depan' => 'required', 'string', 'max:255',
+                'nama_belakang' => 'required', 'string', 'max:255',
+                'alamat' => 'required', 'string', 'max:255',
+            ]);
+            $data->update($request->except('password'));
+        }
+
+
+        return redirect()->route('homeKepsek');
     }
 
     /**

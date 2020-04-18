@@ -137,7 +137,7 @@ Route::prefix('siswa')->middleware('siswa')->group(function () {
 	Route::get('/dashboard/mapel/kuis/{id}', 'Siswa\KuisController@index')->name('kuisSiswa');
 	Route::post('/dashboard/mapel/kuis/{id}', 'Siswa\KuisController@store')->name('kuisSiswaStore');
 
-	Route::get('/dashboard/nilai/{id}', 'Siswa\NilaiController@index')->name('nilai');
+	Route::get('/dashboard/nilai/', 'Siswa\NilaiController@index')->name('nilai');
 
 	Route::get('/dashboard/tugas/{id}', 'Siswa\TugasController@index')->name('tugasSiswa');
 	Route::post('/dashboard/tugas/', 'Siswa\TugasController@store')->name('tugasSiswaStore');
@@ -147,6 +147,7 @@ Route::prefix('kepsek')->middleware('kepsek')->group(function () {
 	Route::get('/dashboard', 'Kepsek\KepsekController@index')->name('homeKepsek');
 
 	Route::get('/dashboard/profil/{id}', 'Kepsek\ProfilController@index')->name('profilKepsek');
+	Route::put('/dashboard/profil/{id}', 'Kepsek\ProfilController@update')->name('updateProfilKepsek');
 });
 
 Route::get('/firebase', 'FirebaseController@index')->name('firebase');

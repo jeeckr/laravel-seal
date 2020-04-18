@@ -35,7 +35,7 @@
                     <div class="card card-belajar mx-auto">
                         <div class="card-body">
                             <div class="card-header bg-primary header-soal">
-                                <h5>Soal no </h5>
+                                <h5>Soal no 1</h5>
                             </div>
 
                             <form action="{{ route('kuisSiswaStore', $soal[0]->id) }}" method="POST" class="form-soal">
@@ -75,6 +75,7 @@
                                 <input type="hidden" name="next" value="{{ $soal->nextPageUrl() }}">
 
                                 <input type="hidden" name="status_siswa" value="1">
+                                <input type="hidden" name="id_kuis" value="{{ $soal[0]->id_kuis}}">
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary" name="submit">Lanjut</button>

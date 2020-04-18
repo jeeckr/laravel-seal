@@ -10,12 +10,23 @@
 <script src="{{ asset('/stisla/js/stisla.js') }}"></script>
 
 <!-- JS Libraies -->
+<script src="{{ asset('/stisla/modules/fullcalendar/fullcalendar.min.js') }}"></script>
+<script src="{{ asset('/stisla/js/page/modules-calendar.js') }}"></script>
+<script src="{{ asset('/assets/js/jquery.selectric.min.js') }}"></script>
+<script src="{{ asset('/assets/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.select.min.js') }}"></script>
+<script src="{{ asset('/assets/js/Chart.min.js') }}"></script>
+<script src="{{ asset('/stisla/js/page/modules-chartjs.js') }}"></script>
 
 <!-- Template JS File -->
 <script src="{{ asset('/stisla/js/scripts.js') }}"></script>
 <script src="{{ asset('/stisla/js/custom.js') }}"></script>
+<script src="{{ asset('/stisla/js/stisla.js') }}"></script>
 
 <!-- Page Specific JS File -->
+<script src="{{ asset('/stisla/js/page/modules-datatables.js') }}"></script>
+
 </body>
 
 </html>

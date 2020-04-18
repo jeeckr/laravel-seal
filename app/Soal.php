@@ -16,4 +16,13 @@ class Soal extends Model
     {
         return $this->belongsTo(Kuis::class, 'id_kuis');
     }
+    public function jawaban()
+    {
+        return $this->hasMany(JawabanSiswa::class);
+    }
+
+    public function nilai()
+    {
+        return $this->belongsTo(Nilai::class);
+    }
 }

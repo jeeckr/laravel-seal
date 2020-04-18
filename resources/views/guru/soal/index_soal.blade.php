@@ -187,20 +187,27 @@
                                                         <tbody>
 
                                                             <?php $no = 0 ?>
-                                                            @foreach($siswa as $data)
+                                                            @foreach($status as $data)
                                                             <?php $no++ ?>
                                                             <tr>
                                                                 <td>{{ $no }}</td>
-                                                                <td>{{ $data->nisn }}</td>
-                                                                <td>{{ $data->nama_depan }}
-                                                                    {{ $data->nama_belakang }}
+                                                                <td>{{ $data->siswa->nisn }}</td>
+                                                                <td>{{ $data->siswa->nama_depan }}
+                                                                    {{ $data->siswa->nama_belakang }}
+                                                                </td>
+                                                                <td>
+                                                                    @if($data->kuis->status_siswa == 1)
+                                                                    Selesai
+                                                                    @else
+                                                                    Belum Selesai
+                                                                    @endif
                                                                 </td>
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
-
                                                     </table>
                                                 </div>
+                                                <a href="{{ route('homeGuru') }}" class="btn btn-warning btn-kembali mt-3 mr-3">Kembali</a>
                                             </div>
                                         </div>
 

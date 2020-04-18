@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Soal;
 use App\JawabanSiswa;
 use App\Kuis;
+use App\KuisSiswa;
 use App\Nilai;
 use App\Status;
 
@@ -50,6 +51,11 @@ class KuisController extends Controller
                 'id_kuis' => $soal->id_kuis,
                 'id_siswa' => $siswa->id,
                 'nilai' => session('nilai')
+            ]);
+
+            $kuis_siswa = KuisSiswa::create([
+                'id_kuis' => $request['id_kuis'],
+                'id_siswa' => $siswa->id
             ]);
 
             $kuis = Kuis::find($soal->id_kuis);

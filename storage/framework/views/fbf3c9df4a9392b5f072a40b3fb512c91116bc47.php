@@ -1,6 +1,10 @@
 <?php $__env->startSection('style_css'); ?>
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }
@@ -45,6 +49,31 @@
 
     .table-materi thead th {
         color: white !important;
+    }
+
+    .badge.badge-primary {
+        background-color: #0491d0 !important;
+    }
+
+    .nav-pills .nav-item .nav-link.active {
+        background-color: #0491d0 !important;
+    }
+
+    h4 {
+        color: #0491d0 !important;
+    }
+
+    .btn-primary {
+        background-color: #0491d0 !important;
+    }
+
+    .bg-primary {
+        color: white;
+        background-color: #0491d0 !important;
+    }
+
+    .breadcrumb {
+        background-color: #f4f6f9 !important;
     }
 </style>
 

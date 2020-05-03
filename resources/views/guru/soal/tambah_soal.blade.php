@@ -3,6 +3,10 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }
@@ -25,6 +29,18 @@
         object-fit: cover;
         margin-left: 1rem !important;
     }
+
+    .header-tambah {
+        background-color: #0491d0 !important;
+    }
+
+    .header-tambah h4 {
+        color: white !important;
+    }
+
+    .card-tambah {
+        padding-top: 0px !important;
+    }
 </style>
 
 @endsection
@@ -40,63 +56,70 @@
 
                 </div>
                 <div class="col-md-6">
-                    <form action="{{ route('storeSoalGuru') }}" id="form-input" name="form-input" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="hidden" class="form-control" name="id_kuis" value="{{$kuis->id}}">
-                            </div>
+                    <div class="card">
+                        <div class="card-header header-tambah">
+                            <h4>Tambah Soal</h4>
                         </div>
-                        <div class="form-group">
-                            <label>Soal</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Soal" name="soal">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Pilihan A</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Pilihan A" name="pilihan_a">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Pilihan B</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Pilihan B" name="pilihan_b">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Pilihan C</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Pilihan C" name="pilihan_c">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Pilihan D</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Pilihan D" name="pilihan_d">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Kunci</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Kunci" name="kunci">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="submit" class="btn btn-primary" name="tambah" id="tambah">Tambah</button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a href="{{ route('indexSoalGuru', $kuis->id) }}" class="btn btn-primary">Kembali</a>
+                        <div class="card-body card-tambah">
+                            <form action="{{ route('storeSoalGuru') }}" id="form-input" name="form-input" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="hidden" class="form-control" name="id_kuis" value="{{$kuis->id}}">
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <label>Soal</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Soal" name="soal">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Pilihan A</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Pilihan A" name="pilihan_a">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Pilihan B</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Pilihan B" name="pilihan_b">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Pilihan C</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Pilihan C" name="pilihan_c">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Pilihan D</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Pilihan D" name="pilihan_d">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kunci</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Kunci" name="kunci">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn-primary" name="tambah" id="tambah">Tambah</button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="{{ route('indexSoalGuru', $kuis->id) }}" class="btn btn-warning">Kembali</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    </form>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
 

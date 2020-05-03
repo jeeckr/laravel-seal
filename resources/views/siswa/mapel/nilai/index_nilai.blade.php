@@ -24,6 +24,26 @@
         font-size: 20px;
         color: #6777ef;
     }
+
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
+    .bg-primary {
+        background-color: #0491d0 !important;
+    }
+
+    h4 {
+        color: #0491d0 !important;
+    }
+
+    .btn-back {
+        float: right;
+    }
+
+    .card-nilai {
+        height: auto !important;
+    }
 </style>
 
 @endsection
@@ -36,55 +56,61 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="card card-belajar mx-auto">
+                    <div class="card card-belajar mx-auto card-nilai">
                         <div class="card-body">
                             <div class="card-header bg-primary">
                                 <h4 class="hasil">Hasil</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body ">
                                 <div class="nilai text-center">
                                     {{ $hasil }}
                                 </div>
                                 <div class="point text-center">
                                     Point
                                 </div>
-                            </div>
 
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>Review</h4>
-                                    <div class="card-header-action">
-                                        <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collapse show" id="mycard-collapse">
-                                    <div class="card-body">
-
-                                        <?php $no = 0 ?>
-                                        @foreach($jawaban as $data)
-                                        <?php $no++ ?>
-
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                {{ $no }}
-                                            </div>
-                                            <div class="col-md-5">
-                                                {{ $data->soal->soal }}
-                                            </div>
-                                            <div class="col-md-3">
-                                                Jawaban Anda : {{ $data->jawaban }}
-                                            </div>
-                                            <div class="col-md-2">
-
-                                            </div>
+                                <div class="card ">
+                                    <div class="card-header">
+                                        <h4>Review</h4>
+                                        <div class="card-header-action">
+                                            <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
                                         </div>
+                                    </div>
+                                    <div class="collapse show" id="mycard-collapse">
+                                        <div class="card-body ">
 
-                                        @endforeach
+                                            <?php $no = 0 ?>
+                                            @foreach($jawaban as $data)
+                                            <?php $no++ ?>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    {{ $no }}
+                                                </div>
+                                                <div class="col-md-5">
+                                                    {{ $data->soal->soal }}
+                                                </div>
+                                                <div class="col-md-3">
+                                                    Jawaban Anda : {{ $data->jawaban }}
+                                                </div>
+                                                <div class="col-md-2">
+
+                                                </div>
+                                            </div>
+
+                                            @endforeach
 
 
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class="card-footer">
+                                    <a href="{{ route('homeSiswa') }}" class="btn btn-warning btn-back">Kembali</a>
+                                </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>

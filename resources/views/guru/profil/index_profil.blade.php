@@ -6,6 +6,18 @@
     .section {
         margin-top: 1rem !important;
     }
+
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
+    h4 {
+        color: #0491d0 !important;
+    }
+
+    .btn-primary {
+        background-color: #0491d0 !important;
+    }
 </style>
 
 @endsection

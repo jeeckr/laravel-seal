@@ -74,7 +74,7 @@ class SoalController extends Controller
             'kunci' => $request['kunci'],
         ]);
 
-        return redirect()->route('homeGuru')->with('success', 'Soal berhasil ditambah!');
+        return redirect()->route('indexSoalGuru', $request['id_kuis']);
     }
 
     /**
@@ -130,9 +130,9 @@ class SoalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         Soal::destroy($id);
-        return redirect()->route('indexSoalGuru');
+        return redirect()->route('homeGuru');
     }
 }

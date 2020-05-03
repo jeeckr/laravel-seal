@@ -3,6 +3,10 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }

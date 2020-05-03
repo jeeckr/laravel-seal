@@ -3,6 +3,27 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
+    h4 {
+        color: #0491d0 !important;
+    }
+
+    .btn-primary {
+        background-color: #0491d0 !important;
+    }
+
+    .nav-pills .nav-item .nav-link.active {
+        background-color: #0491d0 !important;
+    }
+
+    .bg-primary {
+        color: white;
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }
@@ -77,7 +98,7 @@
     }
 
     .card-header-mapel {
-        background-color: #6777ef !important;
+        background-color: #0491d0 !important;
         color: white;
         min-height: 20px !important;
         padding-top: 5px;

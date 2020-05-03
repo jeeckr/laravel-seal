@@ -33,9 +33,7 @@ class GuruController extends Controller
             'email' => 'required', 'string', 'email', 'max:255', 'unique:guru',
             'password' => 'required', 'string', 'min:8',
         ]);
-
         $path = null;
-
         if ($request->has('image')) {
             $path = $request->file('image')->store('image');
         }

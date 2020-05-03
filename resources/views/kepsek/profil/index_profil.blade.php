@@ -3,8 +3,20 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
+    }
+
+    h4 {
+        color: #0491d0 !important;
+    }
+
+    .btn-primary {
+        background-color: #0491d0 !important;
     }
 </style>
 

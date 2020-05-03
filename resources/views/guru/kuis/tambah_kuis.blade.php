@@ -3,6 +3,10 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }
@@ -24,6 +28,10 @@
         height: 50px;
         object-fit: cover;
         margin-left: 1rem !important;
+    }
+
+    .btn-primary {
+        background-color: #0491d0 !important;
     }
 </style>
 
@@ -74,7 +82,7 @@
                                                 <button type="submit" class="btn btn-primary" name="tambah" id="tambah">Tambah</button>
                                             </div>
                                             <div class="col-md-6">
-                                                <a href="{{ route('homeGuru') }}" class="btn btn-primary">Kembali</a>
+                                                <a href="{{ route('homeGuru') }}" class="btn btn-warning">Kembali</a>
                                             </div>
                                         </div>
                                     </div>

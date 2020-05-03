@@ -31,14 +31,4 @@ class Kuis extends Model
     {
         return $this->hasMany(KuisSiswa::class);
     }
-
-    // public function jawabanSiswa()
-    // {
-    //     return $this->hasMany(JawabanSiswa::class);
-    // }
-
-    // public function status()
-    // {
-    //     return $this->hasMany(Status::class);
-    // }
 }

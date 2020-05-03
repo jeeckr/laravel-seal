@@ -3,6 +3,10 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }
@@ -50,6 +54,23 @@
 
     .bg-primary {
         color: white;
+        background-color: #0491d0 !important;
+    }
+
+    .nav-pills .nav-item .nav-link.active {
+        background-color: #0491d0 !important;
+    }
+
+    h4 {
+        color: #0491d0 !important;
+    }
+
+    .btn-primary {
+        background-color: #0491d0 !important;
+    }
+
+    .breadcrumb {
+        background-color: #f4f6f9 !important;
     }
 </style>
 
@@ -81,6 +102,9 @@
                                     </li>
                                     <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kelas</a>
+                                    </li>
+                                    <li class="nav-item nav-home">
+                                        <a class="nav-link" id="rating-tab4" data-toggle="tab" href="#rating4" role="tab" aria-controls="rating" aria-selected="false">Penilaian Guru</a>
                                     </li>
                                 </ul>
                             </div>
@@ -170,6 +194,10 @@
 
                                         </div>
 
+                                    </div>
+
+                                    <div class="tab-pane fade" id="rating4" role="tabpanel" aria-labelledby="rating-tab4">
+                                        rating
                                     </div>
                                 </div>
                             </div>

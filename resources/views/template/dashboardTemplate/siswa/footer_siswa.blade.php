@@ -26,6 +26,11 @@
 <!-- Page Specific JS File -->
 <script src="{{ asset('/stisla/js/page/components-chat-box.js') }}"></script>
 
+@yield('js')
+
+
+
+
 </body>
 
 </html>

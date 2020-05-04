@@ -72,6 +72,18 @@
     .breadcrumb {
         background-color: #f4f6f9 !important;
     }
+
+    .chat-box .chat-content .chat-item.chat-right .chat-details {
+        margin-right: 0px !important;
+    }
+
+    .card .chat-form {
+        box-shadow: none !important;
+    }
+
+    .input-message {
+        width: 108% !important;
+    }
 </style>
 
 @endsection
@@ -142,11 +154,12 @@
                                         <div class="card chat-form mb-3">
                                             <form id="chat-form2">
                                                 <div class="row">
-                                                    <div class="col-md-10">
-                                                        <input type="text" class="form-control" placeholder="Type a message">
+                                                    <div class="col-md-10" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);">
+                                                        <input type='hidden' id='nameInput' placeholder='Name' value="{{ $siswa->nama_depan }}">
+                                                        <input type="text" class="form-control input-message" id="messageInput" placeholder="Type a message">
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <button class="btn btn-primary">
+                                                        <button type="submit" class="btn btn-primary float-right">
                                                             <i class="far fa-paper-plane"></i>
                                                         </button>
                                                     </div>
@@ -237,6 +250,10 @@
     <button type="submit">Submit</button>
 </form> -->
 
+
+@endsection
+
+@section('js')
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
 
@@ -244,7 +261,7 @@
  https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<!-- <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script> -->
 
 <script>
     // Your web app's Firebase configuration
@@ -275,9 +292,11 @@
         });
     };
 
-    $(window).load(function() {
-        $("#formInput").submit(submit);
-    });
+    // $("#chat-form2").submit(function(e) {
+    //     e.preventDefault();
+    //     submit;
+    // });
+    $("#chat-form2").submit(submit);
 
     preference.on('child_added', function(data, prevChildKey) {
         var message = data.val();
@@ -289,9 +308,16 @@
 
     // Fungsi Tampil
     function displayChatMessage(name, text) {
-        $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+        // $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
+        // $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+        var type = 'text';
+        // if (chats[i].typing != undefined) type = 'typing';
+        $.chatCtrl('#mychatbox2', {
+            text: (text != undefined ? text : ''),
+            name: name,
+            position: 'chat-right',
+            type: type
+        });
     };
 </script>
-
 @endsection

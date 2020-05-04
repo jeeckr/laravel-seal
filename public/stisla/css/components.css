@@ -258,7 +258,7 @@
       text-align: right; }
       .chat-box .chat-content .chat-item.chat-right .chat-details .chat-text {
         text-align: left;
-        background-color: #6777ef;
+        background-color: #0491d0;
         color: #fff; }
     .chat-box .chat-content .chat-item > img {
       float: left;
@@ -269,7 +269,8 @@
       .chat-box .chat-content .chat-item .chat-details .chat-text {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
         background-color: #fff;
-        padding: 10px 15px;
+        /* padding: 10px 15px; */
+        padding: 2px 15px;
         border-radius: 3px;
         width: auto;
         display: inline-block;

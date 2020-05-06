@@ -3,6 +3,10 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }
@@ -32,6 +36,14 @@
 
     .btn-kembali {
         float: left;
+    }
+
+    h4 {
+        color: #0491d0 !important;
+    }
+
+    .btn-primary {
+        background-color: #0491d0 !important;
     }
 </style>
 
@@ -84,7 +96,7 @@
                                                 <button type="submit" class="btn btn-primary btn-simpan" name="simpan">Simpan</button>
                                             </div>
                                             <div class="col-md-6">
-                                                <a href="{{ route('homeGuru') }}" class="btn btn-primary btn-kembali">Kembali</a>
+                                                <a href="{{ route('homeGuru') }}" class="btn btn-warning btn-kembali">Kembali</a>
                                             </div>
                                         </div>
                                     </div>

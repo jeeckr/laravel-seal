@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KepsekTableSeeder::class);
         $this->call(KelasJurusanTableSeeder::class);
         $this->call(MapelTableSeeder::class);
+        $this->call(MateriTableSeeder::class);
     }
 }

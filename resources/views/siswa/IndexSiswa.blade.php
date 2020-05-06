@@ -115,9 +115,9 @@
                                     <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kelas</a>
                                     </li>
-                                    <li class="nav-item nav-home">
+                                    <!-- <li class="nav-item nav-home">
                                         <a class="nav-link" id="rating-tab4" data-toggle="tab" href="#rating4" role="tab" aria-controls="rating" aria-selected="false">Penilaian Guru</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -209,9 +209,9 @@
 
                                     </div>
 
-                                    <div class="tab-pane fade" id="rating4" role="tabpanel" aria-labelledby="rating-tab4">
+                                    <!-- <div class="tab-pane fade" id="rating4" role="tabpanel" aria-labelledby="rating-tab4">
                                         rating
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
 

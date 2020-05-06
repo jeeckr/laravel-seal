@@ -14,8 +14,8 @@ class KepsekTableSeeder extends Seeder
     {
         DB::table('kepsek')->insert([
             'nip' => '01',
-            'nama_depan' => 'Headmaster',
-            'nama_belakang' => 'New',
+            'nama_depan' => 'Kepala',
+            'nama_belakang' => 'Sekolah',
             'alamat' => 'Surabaya',
             'email' => 'kepsek@gmail.com',
             'password' => bcrypt('password')

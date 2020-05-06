@@ -75,6 +75,10 @@
     .breadcrumb {
         background-color: #f4f6f9 !important;
     }
+
+    .page-item.active .page-link {
+        background-color: #0491d0 !important;
+    }
 </style>
 
 <?php $__env->stopSection(); ?>
@@ -104,9 +108,9 @@
                                     <li class="nav-item nav-home">
                                         <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">Home</a>
                                     </li>
-                                    <!-- <li class="nav-item nav-home">
-                                        <a class="nav-link" id="siswa-tab4" data-toggle="tab" href="#siswa4" role="tab" aria-controls="siswa" aria-selected="false">Siswa</a>
-                                    </li> -->
+                                    <li class="nav-item nav-home">
+                                        <a class="nav-link" id="modul-tab4" data-toggle="tab" href="#modul4" role="tab" aria-controls="modul" aria-selected="false">Materi</a>
+                                    </li>
                                     <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kuis</a>
                                     </li>
@@ -184,65 +188,58 @@
 
                                     </div>
 
-                                    <!-- Siswa -->
+                                    <!-- Modul -->
 
-                                    <!-- <div class="tab-pane fade " id="siswa4" role="tabpanel" aria-labelledby="siswa-tab4"> -->
+                                    <div class="tab-pane fade " id="modul4" role="tabpanel" aria-labelledby="modul-tab4">
 
-                                    <!-- <div class="card">
+                                        <div class="card">
                                             <div class="card-header">
-                                                <h4>Data Siswa</h4>
+                                                <h4>Data Materi</h4>
                                             </div>
                                             <div class="card-body">
-                                                <div class="row mb-3 justify-content-center">
+                                                <!-- <div class="row mb-3 justify-content-center">
                                                     <div class="col-md-8">
                                                         <canvas id="pieChart"></canvas>
                                                     </div>
-                                                </div>
+                                                </div> -->
+                                                <a href="<?php echo e(route('tambahKuisGuru')); ?>" class="btn btn-primary mb-3"> Tambah Materi</a>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <table class="table table-sm text-center">
                                                             <thead class="bg-primary" style="color:white;">
                                                                 <tr>
-                                                                    <th scope="col">Kelas</th>
-                                                                    <th scope="col">Jurusan</th>
+                                                                    <th scope="col">Bab</th>
+                                                                    <th scope="col">Judul</th>
+
                                                                     <th scope="col">Action</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                                <?php $__currentLoopData = $materi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <tr>
-                                                                    <td>10</td>
-                                                                    <td>Rekayasa Perangkat Lunak</td>
+                                                                    <td><?php echo e($data->bab); ?></td>
+                                                                    <td><?php echo e($data->judul); ?></td>
                                                                     <td>
-                                                                        <a href="">
-                                                                            <div class="badge badge-primary">Detail</div>
+                                                                        <a href="<?php echo e(route('editMateriGuru', $data->id)); ?>">
+                                                                            <div class="badge badge-warning">Edit</div>
+                                                                        </a>
+                                                                        <a href="<?php echo e(route('detailMateriGuru', $data->id)); ?>">
+                                                                            <div class="badge badge-secondary">Detail</div>
+                                                                        </a>
+                                                                        <a href="<?php echo e(route('hapusMateriGuru', $data->id)); ?>">
+                                                                            <div class="badge badge-danger">Hapus</div>
                                                                         </a>
                                                                     </td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td>10</td>
-                                                                    <td>Teknik Komputer dan Jaringan </td>
-                                                                    <td>
-                                                                        <a href="">
-                                                                            <div class="badge badge-primary">Detail</div>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>10</td>
-                                                                    <td>Multimedia</td>
-                                                                    <td>
-                                                                        <a href="">
-                                                                            <div class="badge badge-primary">Detail</div>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> -->
-                                    <!-- </div> -->
+                                        </div>
+                                    </div>
 
                                     <!-- End Siswa -->
 

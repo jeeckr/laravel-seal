@@ -3,6 +3,10 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }
@@ -29,6 +33,12 @@
     .btn-kembali {
         float: right;
     }
+
+    h4 {
+        color: #0491d0 !important;
+    }
+
+    
 </style>
 
 @endsection
@@ -57,7 +67,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <a href="{{ route('homeGuru') }}" class="btn btn-primary btn-kembali">Kembali</a>
+                                        <a href="{{ route('homeGuru') }}" class="btn btn-warning btn-kembali">Kembali</a>
                                     </div>
                                 </div>
                             </div>

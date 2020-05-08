@@ -38,9 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab2" data-toggle="tab" href="#home2" role="tab" aria-controls="home" aria-selected="true">Profil</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile" aria-selected="false">Nilai</a>
-                        </li>
+                        </li> -->
 
                     </ul>
                     <div class="tab-content tab-bordered" id="myTab3Content">

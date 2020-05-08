@@ -224,7 +224,6 @@
                                                         <tr>
                                                             <th>Judul Kuis</th>
                                                             <th>Mata pelajaran</th>
-                                                            <th>Deadline</th>
                                                             <th>Status</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -234,7 +233,6 @@
                                                     <tr>
                                                         <td>{{ $data->judul}}</td>
                                                         <td>{{ $data->mapel->nama_mapel}}</td>
-                                                        <td>2017-01-09</td>
                                                         <td>
                                                             @if($data->status_siswa == 1)
                                                             <div class="badge badge-warning">Selesai</div>

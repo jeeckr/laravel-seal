@@ -16,6 +16,10 @@
         width: 70%;
     }
 
+    .card-header {
+        background-color: #0491d0 !important;
+    }
+
     .card-materi .header-materi h4 {
         color: white !important;
     }

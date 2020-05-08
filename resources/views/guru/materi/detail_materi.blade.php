@@ -61,8 +61,8 @@
                                 <h4>Detail Materi</h4>
                             </div>
                             <div class="card-body">
-                                Bab {{ $materi->bab }}
-                                Judul : {{$materi->judul}} <br>
+                                <!-- Bab {{ $materi->bab }}
+                                Judul : {{$materi->judul}} <br> -->
                                 <div class="container">
                                     <div class="col-md-12">
                                         <div class="isi">

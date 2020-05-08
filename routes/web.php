@@ -148,6 +148,10 @@ Route::prefix('kepsek')->middleware('kepsek')->group(function () {
 
 	Route::get('/dashboard/profil/{id}', 'Kepsek\ProfilController@index')->name('profilKepsek');
 	Route::put('/dashboard/profil/{id}', 'Kepsek\ProfilController@update')->name('updateProfilKepsek');
+
+	Route::get('/dashboard/{id}/siswa', 'Kepsek\SiswaController@index')->name('detailSiswa');
+
+	Route::get('/dashboard/guru/{id}', 'Kepsek\GuruController@index')->name('detailGuru');
 });
 
 Route::get('/firebase', 'FirebaseController@index')->name('firebase');

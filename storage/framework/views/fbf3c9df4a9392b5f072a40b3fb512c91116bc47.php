@@ -105,11 +105,11 @@
 
                             <div class="col-12 col-sm-12 col-md-3">
                                 <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
-                                    <li class="nav-item nav-home">
+                                    <!-- <li class="nav-item nav-home">
                                         <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">Home</a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item nav-home">
-                                        <a class="nav-link" id="modul-tab4" data-toggle="tab" href="#modul4" role="tab" aria-controls="modul" aria-selected="false">Materi</a>
+                                        <a class="nav-link active" id="modul-tab4" data-toggle="tab" href="#modul4" role="tab" aria-controls="modul" aria-selected="false">Materi</a>
                                     </li>
                                     <li class="nav-item nav-home">
                                         <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">Kuis</a>
@@ -148,7 +148,7 @@
                                 <div class="tab-content no-padding" id="myTab2Content">
 
                                     <!-- Home -->
-                                    <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
+                                    <!-- <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
 
                                         <div class="row">
                                             <div class="col-md-6">
@@ -186,11 +186,11 @@
 
 
 
-                                    </div>
+                                    </div> -->
 
                                     <!-- Modul -->
 
-                                    <div class="tab-pane fade " id="modul4" role="tabpanel" aria-labelledby="modul-tab4">
+                                    <div class="tab-pane fade show active" id="modul4" role="tabpanel" aria-labelledby="modul-tab4">
 
                                         <div class="card">
                                             <div class="card-header">

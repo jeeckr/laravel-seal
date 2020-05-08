@@ -69,7 +69,7 @@
                                         Judul : {{$materi->judul}}
                                     </div>
                                     <div class="row">
-                                        {{$materi->isi_materi}}
+                                        {!!$materi->isi_materi!!}
                                     </div>
                                 </div>
 

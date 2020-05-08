@@ -50,8 +50,6 @@
 @endsection
 
 @section('content')
-
-
 <div class="main-content">
     <section class="section">
         <div class="section-body">
@@ -99,7 +97,6 @@
                                             <div id="editor-container">{!! $materi->isi_materi !!}</div>
                                             <input type="hidden" name="isi_materi">
                                         </div>
-
 
                                         <div class="form-group">
                                             <div class="row">

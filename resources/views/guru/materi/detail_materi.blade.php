@@ -37,6 +37,10 @@
     h4 {
         color: #0491d0 !important;
     }
+
+    .isi {
+        width: 100%;
+    }
 </style>
 
 @endsection
@@ -59,7 +63,13 @@
                             <div class="card-body">
                                 Bab {{ $materi->bab }}
                                 Judul : {{$materi->judul}} <br>
-                                {!!$materi->isi_materi!!}
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <div class="isi">
+                                            {!!$materi->isi_materi!!}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="container">

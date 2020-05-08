@@ -12,7 +12,7 @@
     }
 
     .card-belajar {
-        height: 70vh !important;
+        height: auto !important;
         width: 70%;
     }
 
@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="container mt-2">
-                                <p>{{ $data->isi_materi }}</p>
+                                <p>{!! $data->isi_materi !!}</p>
                             </div>
                             @endforeach
 

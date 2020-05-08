@@ -25,7 +25,7 @@ class NilaiController extends Controller
         $nilai = Nilai::where(['id_siswa' => $siswa->id])->where('id_kuis', $request['kuis'])->sum('nilai');
         $nilai2 = Nilai::where(['id_siswa' => $siswa->id])->where('id_kuis', $request['kuis'])->get();
         $soal = Soal::where('id_kuis', $request['kuis'])->get();
-        $hasil = $nilai * 10;
+        $hasil = $nilai * 5;
         $jawaban = JawabanSiswa::where('id_siswa', $siswa->id)->get();
         return view('siswa.mapel.nilai.index_nilai', compact('title', 'siswa', 'nilai', 'jawaban', 'soal', 'hasil', 'nilai2'));
     }

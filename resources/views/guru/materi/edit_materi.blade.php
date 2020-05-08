@@ -84,11 +84,15 @@
                                         <label>Judul</label>
                                         <input type="text" class="form-control" name="judul" value="{{ $materi->judul }}">
                                     </div>
-                                    <div class="form-group row mb-2">
+                                    <!-- <div class="form-group row mb-2">
                                         <label class="col-form-label text-md-left col-12 ">Isi materi</label>
                                         <div class="col-sm-12">
                                             <textarea class="summernote-simple" name="isi_materi">{{ $materi->isi_materi }}</textarea>
                                         </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label>Isi Materi</label>
+                                        <textarea class="form-control" name="isi_materi"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">

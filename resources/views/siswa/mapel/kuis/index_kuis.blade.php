@@ -3,6 +3,10 @@
 @section('style_css')
 
 <style>
+    .navbar-bg {
+        background-color: #0491d0 !important;
+    }
+
     .section {
         margin-top: 1rem !important;
     }
@@ -14,11 +18,19 @@
 
     .header-soal {
         padding-top: 22px !important;
-
+        background-color: #0491d0 !important;
     }
 
     .form-soal {
         padding-left: 20px;
+    }
+
+    .btn-primary {
+        background-color: #0491d0 !important;
+    }
+
+    h4 {
+        color: #0491d0 !important;
     }
 </style>
 
@@ -35,7 +47,7 @@
                     <div class="card card-belajar mx-auto">
                         <div class="card-body">
                             <div class="card-header bg-primary header-soal">
-                                <h5>Soal no 1</h5>
+                                <h5>Soal no </h5>
                             </div>
 
                             <form action="{{ route('kuisSiswaStore', $soal[0]->id) }}" method="POST" class="form-soal">

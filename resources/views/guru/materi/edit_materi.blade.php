@@ -96,7 +96,7 @@
 
                                         <div class="form-group">
                                             <label for="">Isi Materi</label>
-                                            <div id="editor-container">{{ $materi->isi_materi }}</div>
+                                            <div id="editor-container">{!! $materi->isi_materi !!}</div>
                                             <input type="hidden" name="isi_materi">
                                         </div>
 

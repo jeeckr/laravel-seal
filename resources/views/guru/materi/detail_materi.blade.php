@@ -37,8 +37,6 @@
     h4 {
         color: #0491d0 !important;
     }
-
-    
 </style>
 
 @endsection
@@ -61,7 +59,7 @@
                             <div class="card-body">
                                 Bab {{ $materi->bab }}
                                 Judul : {{$materi->judul}} <br>
-                                {{$materi->isi_materi}}
+                                {!!$materi->isi_materi!!}
                             </div>
 
                             <div class="container">

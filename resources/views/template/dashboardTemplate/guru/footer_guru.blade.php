@@ -26,6 +26,37 @@
 <script src="{{ asset('/stisla/js/page/bootstrap-modal.js') }}"></script>
 <script src="{{ asset('/stisla/js/page/modules-datatables.js') }}"></script>
 
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+    var quill = new Quill('#editor-container', {
+        modules: {
+            toolbar: [
+                ['bold', 'italic'],
+                ['link', 'blockquote', 'code-block', 'image'],
+                [{
+                    list: 'ordered'
+                }, {
+                    list: 'bullet'
+                }]
+            ]
+        },
+        placeholder: 'Compose an epic...',
+        theme: 'snow'
+    });
+
+    var form = document.querySelector('form');
+    form.onsubmit = function() {
+        // Populate hidden form on submit
+        var materi = document.querySelector('input[name=isi_materi]');
+        materi.value = quill.root.innerHTML;
+        return true;
+
+    };
+</script>
+
+
 
 </body>
 

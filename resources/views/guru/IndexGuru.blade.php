@@ -104,7 +104,6 @@
                             </div>
 
                             <hr>
-
                             <div class="col-12 col-sm-12 col-md-3">
                                 <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                                     <!-- <li class="nav-item nav-home">
@@ -320,6 +319,7 @@
 <!-- Pie Chart -->
 <script>
     var siswa = "{{ count($siswa) }}";
+    console.log(siswa);
     var ctxP = document.getElementById("pieChart").getContext('2d');
     var myPieChart = new Chart(ctxP, {
         type: 'pie',

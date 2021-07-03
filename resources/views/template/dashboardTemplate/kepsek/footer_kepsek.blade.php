@@ -27,6 +27,8 @@
 <!-- Page Specific JS File -->
 <script src="{{ asset('/stisla/js/page/modules-datatables.js') }}"></script>
 
+@yield('js')
+
 </body>
 
 </html>
